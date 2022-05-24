@@ -1,0 +1,1 @@
+server=localhost;user id=soporte;password=soporte;persistsecurityinfo=True;database=dbsoint;convertzerodatetime=False
