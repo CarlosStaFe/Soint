@@ -100,6 +100,7 @@
     End Sub
 
     Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+
         For i As Integer = 0 To dgvCtasctes.Rows.Count - 1
 
             id = dgvCtasctes.Rows(i).Cells(0).Value()
@@ -160,44 +161,6 @@
         ToolTipMsg.ToolTipTitle = "Botón Limpiar."
         ToolTipMsg.SetToolTip(btnLimpiar, "Presione para limpiar la pantalla.")
         ToolTipMsg.ToolTipIcon = ToolTipIcon.Info
-
-    End Sub
-
-    Private Sub ProcesarFecha()
-
-        pos1 = InStr(1, fechajob, "/")
-        pos2 = InStr(pos1 + 1, fechajob, "/")
-
-        dd = Mid(fechajob, 1, pos1 - 1)
-        mm = Mid(fechajob, pos1 + 1, ((pos2 - 1) - pos1))
-        yyyy = Mid(fechajob, pos2 + 1, 4)
-
-        ceros = ""
-        longitud = Len(dd)
-        If longitud < 2 Then
-            cantidad = 2 - longitud
-            For j = 1 To cantidad
-                ceros = ceros & "0"
-            Next j
-            dd = ceros & dd
-        End If
-
-        ceros = ""
-        longitud = Len(mm)
-        If longitud < 2 Then
-            cantidad = 2 - longitud
-            For j = 1 To cantidad
-                ceros = ceros & "0"
-            Next j
-            mm = ceros & mm
-        End If
-
-        If yyyy < 100 Then
-            yyyy = "20" + yyyy
-        End If
-
-        fechajob = dd & "/" & mm & "/" & yyyy
-        fechadb = yyyy & "/" & mm & "/" & dd
 
     End Sub
 
