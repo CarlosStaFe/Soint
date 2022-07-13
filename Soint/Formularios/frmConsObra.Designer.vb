@@ -39,6 +39,11 @@ Partial Class frmConsObra
         Me.BtnSalir = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dgvObras = New System.Windows.Forms.DataGridView()
+        Me.ObrasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbsointDataSet = New Soint.dbsointDataSet()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.ObrasTableAdapter = New Soint.dbsointDataSetTableAdapters.obrasTableAdapter()
+        Me.ToolTipMsg = New System.Windows.Forms.ToolTip(Me.components)
         Me.IdObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ClienteObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NroObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -48,11 +53,7 @@ Partial Class frmConsObra
         Me.EstadoObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FecEstadoObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ObsObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ObrasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbsointDataSet = New Soint.dbsointDataSet()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.ObrasTableAdapter = New Soint.dbsointDataSetTableAdapters.obrasTableAdapter()
-        Me.ToolTipMsg = New System.Windows.Forms.ToolTip(Me.components)
+        Me.NombreObra = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvObras, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ObrasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -156,7 +157,7 @@ Partial Class frmConsObra
         Me.dgvObras.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvObras.ColumnHeadersHeight = 40
         Me.dgvObras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvObras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdObraDataGridViewTextBoxColumn, Me.ClienteObraDataGridViewTextBoxColumn, Me.NroObraDataGridViewTextBoxColumn, Me.FechaObraDataGridViewTextBoxColumn, Me.TitularObraDataGridViewTextBoxColumn, Me.LugarObraDataGridViewTextBoxColumn, Me.EstadoObraDataGridViewTextBoxColumn, Me.FecEstadoObraDataGridViewTextBoxColumn, Me.ObsObraDataGridViewTextBoxColumn})
+        Me.dgvObras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdObraDataGridViewTextBoxColumn, Me.ClienteObraDataGridViewTextBoxColumn, Me.NroObraDataGridViewTextBoxColumn, Me.FechaObraDataGridViewTextBoxColumn, Me.TitularObraDataGridViewTextBoxColumn, Me.LugarObraDataGridViewTextBoxColumn, Me.EstadoObraDataGridViewTextBoxColumn, Me.FecEstadoObraDataGridViewTextBoxColumn, Me.ObsObraDataGridViewTextBoxColumn, Me.NombreObra})
         Me.dgvObras.DataSource = Me.ObrasBindingSource
         DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
@@ -182,6 +183,33 @@ Partial Class frmConsObra
         Me.dgvObras.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.dgvObras.Size = New System.Drawing.Size(791, 330)
         Me.dgvObras.TabIndex = 101
+        '
+        'ObrasBindingSource
+        '
+        Me.ObrasBindingSource.DataMember = "obras"
+        Me.ObrasBindingSource.DataSource = Me.DbsointDataSet
+        '
+        'DbsointDataSet
+        '
+        Me.DbsointDataSet.DataSetName = "dbsointDataSet"
+        Me.DbsointDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PictureBox2.Location = New System.Drawing.Point(520, 434)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(88, 69)
+        Me.PictureBox2.TabIndex = 104
+        Me.PictureBox2.TabStop = False
+        '
+        'ObrasTableAdapter
+        '
+        Me.ObrasTableAdapter.ClearBeforeFill = True
+        '
+        'ToolTipMsg
+        '
+        Me.ToolTipMsg.IsBalloon = True
         '
         'IdObraDataGridViewTextBoxColumn
         '
@@ -264,32 +292,13 @@ Partial Class frmConsObra
         Me.ObsObraDataGridViewTextBoxColumn.ReadOnly = True
         Me.ObsObraDataGridViewTextBoxColumn.Visible = False
         '
-        'ObrasBindingSource
+        'NombreObra
         '
-        Me.ObrasBindingSource.DataMember = "obras"
-        Me.ObrasBindingSource.DataSource = Me.DbsointDataSet
-        '
-        'DbsointDataSet
-        '
-        Me.DbsointDataSet.DataSetName = "dbsointDataSet"
-        Me.DbsointDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PictureBox2.Location = New System.Drawing.Point(520, 434)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(88, 69)
-        Me.PictureBox2.TabIndex = 104
-        Me.PictureBox2.TabStop = False
-        '
-        'ObrasTableAdapter
-        '
-        Me.ObrasTableAdapter.ClearBeforeFill = True
-        '
-        'ToolTipMsg
-        '
-        Me.ToolTipMsg.IsBalloon = True
+        Me.NombreObra.DataPropertyName = "NombreObra"
+        Me.NombreObra.HeaderText = "NOMBRE"
+        Me.NombreObra.Name = "NombreObra"
+        Me.NombreObra.ReadOnly = True
+        Me.NombreObra.Width = 200
         '
         'frmConsObra
         '
@@ -332,6 +341,11 @@ Partial Class frmConsObra
     Friend WithEvents ObrasBindingSource As BindingSource
     Friend WithEvents ObrasTableAdapter As dbsointDataSetTableAdapters.obrasTableAdapter
     Friend WithEvents ToolTipMsg As ToolTip
+    Friend WithEvents ManoObraDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MaterialesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EquiposDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents HerramientasDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents IndirectosDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IdObraDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ClienteObraDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NroObraDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -340,10 +354,6 @@ Partial Class frmConsObra
     Friend WithEvents LugarObraDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EstadoObraDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents FecEstadoObraDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ManoObraDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents MaterialesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents EquiposDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents HerramientasDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents IndirectosDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ObsObraDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NombreObra As DataGridViewTextBoxColumn
 End Class

@@ -270,7 +270,7 @@
 
         CargarDGV()
 
-        txtFechaObra.Focus()
+        txtNombreObra.Focus()
 
     End Sub
 

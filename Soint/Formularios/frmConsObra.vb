@@ -42,10 +42,11 @@
             Dim frmObra2 As frmCompras = CType(Owner, frmCompras)
             frmObra2.txtObraDetCpra.Text = dgvObras.CurrentRow.Cells(2).Value.ToString
         End If
-        'If senial = 3 Then
-        '    Dim frmObra3 As frmObras = CType(Owner, frmObras)
-        '    frmObra3.txtClienteObra.Text = dgvObras.CurrentRow.Cells(1).Value.ToString
-        'End If
+        If senial = 3 Then
+            Dim frmObra3 As frmPreventivo = CType(Owner, frmPreventivo)
+            frmObra3.txtObraGO.Text = dgvObras.CurrentRow.Cells(2).Value.ToString
+            frmObra3.txtNombreGO.Text = dgvObras.CurrentRow.Cells(9).Value.ToString
+        End If
 
         Close()
 

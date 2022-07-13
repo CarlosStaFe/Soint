@@ -536,7 +536,7 @@ Partial Class frmCompras
         Me.txtCantDetCpra.ForeColor = System.Drawing.Color.White
         Me.txtCantDetCpra.Location = New System.Drawing.Point(18, 158)
         Me.txtCantDetCpra.Name = "txtCantDetCpra"
-        Me.txtCantDetCpra.Size = New System.Drawing.Size(50, 23)
+        Me.txtCantDetCpra.Size = New System.Drawing.Size(51, 23)
         Me.txtCantDetCpra.TabIndex = 7
         Me.txtCantDetCpra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -640,7 +640,7 @@ Partial Class frmCompras
         Me.cbxTipoCbteCpra.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbxTipoCbteCpra.ForeColor = System.Drawing.Color.White
         Me.cbxTipoCbteCpra.FormattingEnabled = True
-        Me.cbxTipoCbteCpra.Items.AddRange(New Object() {"FAA", "FAB", "FAC", "NCA", "NCB", "NCC", "REM", "REC", "X"})
+        Me.cbxTipoCbteCpra.Items.AddRange(New Object() {"FAA", "FAB", "FAC", "NCA", "NCB", "NCC", "REM", "X"})
         Me.cbxTipoCbteCpra.Location = New System.Drawing.Point(296, 90)
         Me.cbxTipoCbteCpra.Name = "cbxTipoCbteCpra"
         Me.cbxTipoCbteCpra.Size = New System.Drawing.Size(77, 25)
@@ -666,9 +666,9 @@ Partial Class frmCompras
         Me.txtDetalleDetCpra.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DetallecpraBindingSource, "DetalleDetCpra", True))
         Me.txtDetalleDetCpra.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDetalleDetCpra.ForeColor = System.Drawing.Color.White
-        Me.txtDetalleDetCpra.Location = New System.Drawing.Point(74, 158)
+        Me.txtDetalleDetCpra.Location = New System.Drawing.Point(73, 158)
         Me.txtDetalleDetCpra.Name = "txtDetalleDetCpra"
-        Me.txtDetalleDetCpra.Size = New System.Drawing.Size(206, 23)
+        Me.txtDetalleDetCpra.Size = New System.Drawing.Size(207, 23)
         Me.txtDetalleDetCpra.TabIndex = 8
         '
         'txtUnitDetCpra
@@ -1042,7 +1042,7 @@ Partial Class frmCompras
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1355, 573)
+        Me.ClientSize = New System.Drawing.Size(1227, 573)
         Me.Controls.Add(Me.dgvDetCompras)
         Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.btnGrabar)

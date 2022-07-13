@@ -33,13 +33,13 @@ Partial Class frmObras
         Dim EstadoObraLabel1 As System.Windows.Forms.Label
         Dim Label1 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmObras))
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ObrasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.ObrasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -66,6 +66,16 @@ Partial Class frmObras
         Me.cmbEstadoObra = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dgvObras = New System.Windows.Forms.DataGridView()
+        Me.IdObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClienteObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NroObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreObra = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TitularObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LugarObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstadoObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FecEstadoObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ObsObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolTipMsg = New System.Windows.Forms.ToolTip(Me.components)
         Me.BtnActualizar = New System.Windows.Forms.Button()
         Me.BtnGrabar = New System.Windows.Forms.Button()
@@ -80,16 +90,6 @@ Partial Class frmObras
         Me.ObrasTableAdapter = New Soint.dbsointDataSetTableAdapters.obrasTableAdapter()
         Me.TableAdapterManager = New Soint.dbsointDataSetTableAdapters.TableAdapterManager()
         Me.txtNombreObra = New System.Windows.Forms.TextBox()
-        Me.IdObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ClienteObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NroObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreObra = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TitularObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LugarObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EstadoObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FecEstadoObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ObsObraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         ClienteObraLabel = New System.Windows.Forms.Label()
         NroObraLabel = New System.Windows.Forms.Label()
         TitularObraLabel = New System.Windows.Forms.Label()
@@ -443,50 +443,134 @@ Partial Class frmObras
         Me.dgvObras.AllowUserToAddRows = False
         Me.dgvObras.AllowUserToDeleteRows = False
         Me.dgvObras.AllowUserToOrderColumns = True
-        DataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvObras.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvObras.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvObras.AutoGenerateColumns = False
         Me.dgvObras.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.dgvObras.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.DarkOrange
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvObras.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.DarkOrange
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvObras.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvObras.ColumnHeadersHeight = 30
         Me.dgvObras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvObras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdObraDataGridViewTextBoxColumn, Me.ClienteObraDataGridViewTextBoxColumn, Me.NroObraDataGridViewTextBoxColumn, Me.NombreObra, Me.FechaObraDataGridViewTextBoxColumn, Me.TitularObraDataGridViewTextBoxColumn, Me.LugarObraDataGridViewTextBoxColumn, Me.EstadoObraDataGridViewTextBoxColumn, Me.FecEstadoObraDataGridViewTextBoxColumn, Me.ObsObraDataGridViewTextBoxColumn})
         Me.dgvObras.DataSource = Me.ObrasBindingSource
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
-        DataGridViewCellStyle20.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
-        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvObras.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvObras.DefaultCellStyle = DataGridViewCellStyle6
         Me.dgvObras.EnableHeadersVisualStyles = False
         Me.dgvObras.GridColor = System.Drawing.Color.White
         Me.dgvObras.Location = New System.Drawing.Point(27, 220)
         Me.dgvObras.Name = "dgvObras"
         Me.dgvObras.ReadOnly = True
         Me.dgvObras.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
-        DataGridViewCellStyle21.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle21.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        DataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvObras.RowHeadersDefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvObras.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.dgvObras.Size = New System.Drawing.Size(835, 267)
         Me.dgvObras.TabIndex = 9
+        '
+        'IdObraDataGridViewTextBoxColumn
+        '
+        Me.IdObraDataGridViewTextBoxColumn.DataPropertyName = "id_Obra"
+        Me.IdObraDataGridViewTextBoxColumn.HeaderText = "id_Obra"
+        Me.IdObraDataGridViewTextBoxColumn.Name = "IdObraDataGridViewTextBoxColumn"
+        Me.IdObraDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IdObraDataGridViewTextBoxColumn.Visible = False
+        '
+        'ClienteObraDataGridViewTextBoxColumn
+        '
+        Me.ClienteObraDataGridViewTextBoxColumn.DataPropertyName = "ClienteObra"
+        Me.ClienteObraDataGridViewTextBoxColumn.HeaderText = "ClienteObra"
+        Me.ClienteObraDataGridViewTextBoxColumn.Name = "ClienteObraDataGridViewTextBoxColumn"
+        Me.ClienteObraDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ClienteObraDataGridViewTextBoxColumn.Visible = False
+        '
+        'NroObraDataGridViewTextBoxColumn
+        '
+        Me.NroObraDataGridViewTextBoxColumn.DataPropertyName = "NroObra"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.NroObraDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
+        Me.NroObraDataGridViewTextBoxColumn.HeaderText = "NRO."
+        Me.NroObraDataGridViewTextBoxColumn.Name = "NroObraDataGridViewTextBoxColumn"
+        Me.NroObraDataGridViewTextBoxColumn.ReadOnly = True
+        Me.NroObraDataGridViewTextBoxColumn.Width = 50
+        '
+        'NombreObra
+        '
+        Me.NombreObra.DataPropertyName = "NombreObra"
+        Me.NombreObra.HeaderText = "NOMBRE"
+        Me.NombreObra.Name = "NombreObra"
+        Me.NombreObra.ReadOnly = True
+        Me.NombreObra.Width = 200
+        '
+        'FechaObraDataGridViewTextBoxColumn
+        '
+        Me.FechaObraDataGridViewTextBoxColumn.DataPropertyName = "FechaObra"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.FechaObraDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
+        Me.FechaObraDataGridViewTextBoxColumn.HeaderText = "FECHA"
+        Me.FechaObraDataGridViewTextBoxColumn.Name = "FechaObraDataGridViewTextBoxColumn"
+        Me.FechaObraDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FechaObraDataGridViewTextBoxColumn.Width = 80
+        '
+        'TitularObraDataGridViewTextBoxColumn
+        '
+        Me.TitularObraDataGridViewTextBoxColumn.DataPropertyName = "TitularObra"
+        Me.TitularObraDataGridViewTextBoxColumn.HeaderText = "TitularObra"
+        Me.TitularObraDataGridViewTextBoxColumn.Name = "TitularObraDataGridViewTextBoxColumn"
+        Me.TitularObraDataGridViewTextBoxColumn.ReadOnly = True
+        Me.TitularObraDataGridViewTextBoxColumn.Visible = False
+        '
+        'LugarObraDataGridViewTextBoxColumn
+        '
+        Me.LugarObraDataGridViewTextBoxColumn.DataPropertyName = "LugarObra"
+        Me.LugarObraDataGridViewTextBoxColumn.HeaderText = "LUGAR"
+        Me.LugarObraDataGridViewTextBoxColumn.Name = "LugarObraDataGridViewTextBoxColumn"
+        Me.LugarObraDataGridViewTextBoxColumn.ReadOnly = True
+        Me.LugarObraDataGridViewTextBoxColumn.Width = 200
+        '
+        'EstadoObraDataGridViewTextBoxColumn
+        '
+        Me.EstadoObraDataGridViewTextBoxColumn.DataPropertyName = "EstadoObra"
+        Me.EstadoObraDataGridViewTextBoxColumn.HeaderText = "ESTADO"
+        Me.EstadoObraDataGridViewTextBoxColumn.Name = "EstadoObraDataGridViewTextBoxColumn"
+        Me.EstadoObraDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'FecEstadoObraDataGridViewTextBoxColumn
+        '
+        Me.FecEstadoObraDataGridViewTextBoxColumn.DataPropertyName = "FecEstadoObra"
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.FecEstadoObraDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle5
+        Me.FecEstadoObraDataGridViewTextBoxColumn.HeaderText = "FEC. ESTADO"
+        Me.FecEstadoObraDataGridViewTextBoxColumn.Name = "FecEstadoObraDataGridViewTextBoxColumn"
+        Me.FecEstadoObraDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ObsObraDataGridViewTextBoxColumn
+        '
+        Me.ObsObraDataGridViewTextBoxColumn.DataPropertyName = "ObsObra"
+        Me.ObsObraDataGridViewTextBoxColumn.HeaderText = "OBSERVACIÓN"
+        Me.ObsObraDataGridViewTextBoxColumn.Name = "ObsObraDataGridViewTextBoxColumn"
+        Me.ObsObraDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ObsObraDataGridViewTextBoxColumn.Width = 250
         '
         'ToolTipMsg
         '
@@ -705,90 +789,6 @@ Partial Class frmObras
         Me.txtNombreObra.Name = "txtNombreObra"
         Me.txtNombreObra.Size = New System.Drawing.Size(296, 23)
         Me.txtNombreObra.TabIndex = 3
-        '
-        'IdObraDataGridViewTextBoxColumn
-        '
-        Me.IdObraDataGridViewTextBoxColumn.DataPropertyName = "id_Obra"
-        Me.IdObraDataGridViewTextBoxColumn.HeaderText = "id_Obra"
-        Me.IdObraDataGridViewTextBoxColumn.Name = "IdObraDataGridViewTextBoxColumn"
-        Me.IdObraDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdObraDataGridViewTextBoxColumn.Visible = False
-        '
-        'ClienteObraDataGridViewTextBoxColumn
-        '
-        Me.ClienteObraDataGridViewTextBoxColumn.DataPropertyName = "ClienteObra"
-        Me.ClienteObraDataGridViewTextBoxColumn.HeaderText = "ClienteObra"
-        Me.ClienteObraDataGridViewTextBoxColumn.Name = "ClienteObraDataGridViewTextBoxColumn"
-        Me.ClienteObraDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ClienteObraDataGridViewTextBoxColumn.Visible = False
-        '
-        'NroObraDataGridViewTextBoxColumn
-        '
-        Me.NroObraDataGridViewTextBoxColumn.DataPropertyName = "NroObra"
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.NroObraDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle17
-        Me.NroObraDataGridViewTextBoxColumn.HeaderText = "NRO."
-        Me.NroObraDataGridViewTextBoxColumn.Name = "NroObraDataGridViewTextBoxColumn"
-        Me.NroObraDataGridViewTextBoxColumn.ReadOnly = True
-        Me.NroObraDataGridViewTextBoxColumn.Width = 50
-        '
-        'NombreObra
-        '
-        Me.NombreObra.DataPropertyName = "NombreObra"
-        Me.NombreObra.HeaderText = "NOMBRE"
-        Me.NombreObra.Name = "NombreObra"
-        Me.NombreObra.ReadOnly = True
-        Me.NombreObra.Width = 200
-        '
-        'FechaObraDataGridViewTextBoxColumn
-        '
-        Me.FechaObraDataGridViewTextBoxColumn.DataPropertyName = "FechaObra"
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.FechaObraDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle18
-        Me.FechaObraDataGridViewTextBoxColumn.HeaderText = "FECHA"
-        Me.FechaObraDataGridViewTextBoxColumn.Name = "FechaObraDataGridViewTextBoxColumn"
-        Me.FechaObraDataGridViewTextBoxColumn.ReadOnly = True
-        Me.FechaObraDataGridViewTextBoxColumn.Width = 80
-        '
-        'TitularObraDataGridViewTextBoxColumn
-        '
-        Me.TitularObraDataGridViewTextBoxColumn.DataPropertyName = "TitularObra"
-        Me.TitularObraDataGridViewTextBoxColumn.HeaderText = "TitularObra"
-        Me.TitularObraDataGridViewTextBoxColumn.Name = "TitularObraDataGridViewTextBoxColumn"
-        Me.TitularObraDataGridViewTextBoxColumn.ReadOnly = True
-        Me.TitularObraDataGridViewTextBoxColumn.Visible = False
-        '
-        'LugarObraDataGridViewTextBoxColumn
-        '
-        Me.LugarObraDataGridViewTextBoxColumn.DataPropertyName = "LugarObra"
-        Me.LugarObraDataGridViewTextBoxColumn.HeaderText = "LUGAR"
-        Me.LugarObraDataGridViewTextBoxColumn.Name = "LugarObraDataGridViewTextBoxColumn"
-        Me.LugarObraDataGridViewTextBoxColumn.ReadOnly = True
-        Me.LugarObraDataGridViewTextBoxColumn.Width = 200
-        '
-        'EstadoObraDataGridViewTextBoxColumn
-        '
-        Me.EstadoObraDataGridViewTextBoxColumn.DataPropertyName = "EstadoObra"
-        Me.EstadoObraDataGridViewTextBoxColumn.HeaderText = "ESTADO"
-        Me.EstadoObraDataGridViewTextBoxColumn.Name = "EstadoObraDataGridViewTextBoxColumn"
-        Me.EstadoObraDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'FecEstadoObraDataGridViewTextBoxColumn
-        '
-        Me.FecEstadoObraDataGridViewTextBoxColumn.DataPropertyName = "FecEstadoObra"
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.FecEstadoObraDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle19
-        Me.FecEstadoObraDataGridViewTextBoxColumn.HeaderText = "FEC. ESTADO"
-        Me.FecEstadoObraDataGridViewTextBoxColumn.Name = "FecEstadoObraDataGridViewTextBoxColumn"
-        Me.FecEstadoObraDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ObsObraDataGridViewTextBoxColumn
-        '
-        Me.ObsObraDataGridViewTextBoxColumn.DataPropertyName = "ObsObra"
-        Me.ObsObraDataGridViewTextBoxColumn.HeaderText = "OBSERVACIÓN"
-        Me.ObsObraDataGridViewTextBoxColumn.Name = "ObsObraDataGridViewTextBoxColumn"
-        Me.ObsObraDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ObsObraDataGridViewTextBoxColumn.Width = 250
         '
         'frmObras
         '

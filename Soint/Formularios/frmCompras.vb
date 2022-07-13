@@ -124,9 +124,7 @@
 
     Private Sub txtCantDetCpra_LostFocus(sender As Object, e As EventArgs) Handles txtCantDetCpra.LostFocus
 
-        If txtCantDetCpra.Text = "" Then
-            txtCantDetCpra.Focus()
-        Else
+        If txtCantDetCpra.Text <> "0" Then
             txtDetalleDetCpra.Focus()
         End If
 
@@ -166,6 +164,11 @@
                     txtNetoDetCpra.Text = Format(CDec(txtNetoDetCpra.Text), "########0.00")
                     txtResDetCpra.Text = Format(CDec(txtResDetCpra.Text), "########0.00")
                 End If
+            Else
+                cantidad = Val(txtCantDetCpra.Text)
+                neto = cantidad * unitario
+                txtNetoDetCpra.Text = Str(neto)
+                txtNetoDetCpra.Text = Format(CDec(txtNetoDetCpra.Text), "########0.00")
             End If
         End If
 
@@ -770,8 +773,9 @@
     Private Sub GrabarCtaCte()
 
         Try
-            comando = New MySqlCommand("INSERT INTO ctacteprov VALUES(@id, @prov, @fecha, @tipo, @prefijo, @subfijo, @detalle, @debe, @haber, @saldo, @obs)", conexion)
+            comando = New MySqlCommand("INSERT INTO ctactepro VALUES(@id, @idcpra, @prov, @fecha, @tipo, @prefijo, @subfijo, @detalle, @debe, @haber, @saldo, @obs)", conexion)
             comando.Parameters.AddWithValue("@id", 0)
+            comando.Parameters.AddWithValue("@idcpra", id)
             comando.Parameters.AddWithValue("@prov", txtNroProvCpra.Text)
             fechajob = txtFechaCpra.Text
             ProcesarFecha()
@@ -791,6 +795,62 @@
             btnmsg = 1
             frmMsgBox.ShowDialog()
         End Try
+
+    End Sub
+
+    Private Sub btnLimpiar_MouseHover(sender As Object, e As EventArgs) Handles btnLimpiar.MouseHover
+
+        ToolTipMsg.ToolTipTitle = "Botón Limpiar."
+        ToolTipMsg.SetToolTip(btnLimpiar, "Presione para limpiar los datos ingresados.")
+        ToolTipMsg.ToolTipIcon = ToolTipIcon.Info
+
+    End Sub
+
+    Private Sub btnActualizar_MouseHover(sender As Object, e As EventArgs) Handles btnActualizar.MouseHover
+
+        ToolTipMsg.ToolTipTitle = "Botón Actualizar."
+        ToolTipMsg.SetToolTip(btnActualizar, "Presione para modificar los datos ingresados en la grilla.")
+        ToolTipMsg.ToolTipIcon = ToolTipIcon.Info
+
+    End Sub
+
+    Private Sub btnAgregar_MouseHover(sender As Object, e As EventArgs) Handles btnAgregar.MouseHover
+
+        ToolTipMsg.ToolTipTitle = "Botón Agregar."
+        ToolTipMsg.SetToolTip(btnAgregar, "Presione agregar una nueva compra.")
+        ToolTipMsg.ToolTipIcon = ToolTipIcon.Info
+
+    End Sub
+
+    Private Sub btnEliminar_MouseHover(sender As Object, e As EventArgs) Handles btnEliminar.MouseHover
+
+        ToolTipMsg.ToolTipTitle = "Botón Eliminar."
+        ToolTipMsg.SetToolTip(btnEliminar, "Presione para eliminar la compra seleccionar.")
+        ToolTipMsg.ToolTipIcon = ToolTipIcon.Info
+
+    End Sub
+
+    Private Sub btnGrabar_MouseHover(sender As Object, e As EventArgs) Handles btnGrabar.MouseHover
+
+        ToolTipMsg.ToolTipTitle = "Botón Grabar."
+        ToolTipMsg.SetToolTip(btnGrabar, "Presione para grabar la compra cargada.")
+        ToolTipMsg.ToolTipIcon = ToolTipIcon.Info
+
+    End Sub
+
+    Private Sub btnSalir_MouseHover(sender As Object, e As EventArgs) Handles btnSalir.MouseHover
+
+        ToolTipMsg.ToolTipTitle = "Botón Salir."
+        ToolTipMsg.SetToolTip(btnSalir, "Presione para salir de la pantalla actual.")
+        ToolTipMsg.ToolTipIcon = ToolTipIcon.Info
+
+    End Sub
+
+    Private Sub btnModificar_MouseHover(sender As Object, e As EventArgs) Handles btnModificar.MouseHover
+
+        ToolTipMsg.ToolTipTitle = "Botón Modificar."
+        ToolTipMsg.SetToolTip(btnModificar, "Presione para grabar las modificaciones ingresadas.")
+        ToolTipMsg.ToolTipIcon = ToolTipIcon.Info
 
     End Sub
 

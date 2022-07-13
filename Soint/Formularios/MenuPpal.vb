@@ -299,6 +299,13 @@ Public Class MenuPpal
         OcultarSubmenu()
 
     End Sub
+    Private Sub btnPreventivos_Click(sender As Object, e As EventArgs) Handles btnPreventivos.Click
+
+        MostrarHijo(frmPreventivo)
+        OcultarSubmenu()
+
+    End Sub
+
 
 #End Region
 
@@ -326,6 +333,13 @@ Public Class MenuPpal
     Private Sub btnCtasCtesPro_Click(sender As Object, e As EventArgs) Handles btnCtasCtesPro.Click
 
         MostrarHijo(frmCtaCteProv)
+        OcultarSubmenu()
+
+    End Sub
+
+    Private Sub btnLibroCompras_Click(sender As Object, e As EventArgs) Handles btnLibroCompras.Click
+
+        MostrarHijo(frmLibroIVACpra)
         OcultarSubmenu()
 
     End Sub
