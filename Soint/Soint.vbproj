@@ -282,6 +282,12 @@
     <Compile Include="Formularios\frmObras.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmPagosProv.Designer.vb">
+      <DependentUpon>frmPagosProv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmPagosProv.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmPreventivo.Designer.vb">
       <DependentUpon>frmPreventivo.vb</DependentUpon>
     </Compile>
@@ -405,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmObras.resx">
       <DependentUpon>frmObras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmPagosProv.resx">
+      <DependentUpon>frmPagosProv.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmPreventivo.resx">
       <DependentUpon>frmPreventivo.vb</DependentUpon>

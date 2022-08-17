@@ -57,6 +57,7 @@ Partial Class frmGrupos
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.btnSalir = New System.Windows.Forms.ToolStripButton()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         NombreGrupoLabel = New System.Windows.Forms.Label()
         CType(Me.DbsointDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GruposBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,6 +102,7 @@ Partial Class frmGrupos
         Me.TableAdapterManager.codpostalTableAdapter = Nothing
         Me.TableAdapterManager.comprasTableAdapter = Nothing
         Me.TableAdapterManager.comprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.conceptosTableAdapter = Nothing
         Me.TableAdapterManager.ctactecliTableAdapter = Nothing
         Me.TableAdapterManager.ctacteempTableAdapter = Nothing
         Me.TableAdapterManager.ctacteproTableAdapter = Nothing
@@ -437,4 +439,5 @@ Partial Class frmGrupos
     Friend WithEvents IdGrupoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NombreGrupoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

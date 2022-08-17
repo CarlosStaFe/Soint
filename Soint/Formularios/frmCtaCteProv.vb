@@ -17,7 +17,7 @@
 
         If e.KeyCode = Keys.F1 Then
             senial = 1
-            Dim frmProv1 As New frmConsEmpleados
+            Dim frmProv1 As New frmConsProveedores
             AddOwnedForm(frmProv1)
             frmProv1.ShowDialog()
             senial = 0
@@ -39,13 +39,13 @@
 
     Private Sub LeerProveedor()
 
-        comando.CommandText = "SELECT * FROM proveedores WHERE NroEmp = " & txtProveedor.Text & ""
+        comando.CommandText = "SELECT * FROM proveedores WHERE NroProv = " & txtProveedor.Text & ""
         dt = New DataTable
         da = New MySqlDataAdapter(comando)
         da.Fill(dt)
         If dt.Rows.Count > 0 Then
             Dim row As DataRow = dt.Rows(0)
-            txtTitular.Text = CStr(row("NombreEmp"))
+            txtTitular.Text = CStr(row("RazonSocialProv"))
         Else
             txtTitular.Text = ""
         End If
@@ -56,7 +56,7 @@
 
     Private Sub SaldoCtaCte()
 
-        comando.CommandText = "SELECT * FROM ctactepro WHERE NroCCEmp = " & txtProveedor.Text & " ORDER BY FechaCC"
+        comando.CommandText = "SELECT * FROM ctactepro WHERE NroCCPro = " & txtProveedor.Text & " ORDER BY FechaCCPro"
         dt = New DataTable
         da = New MySqlDataAdapter(comando)
         da.Fill(dt)
@@ -73,15 +73,15 @@
         If dgvCtasctes.Rows.Count > 0 Then
             For Each Fila As DataGridViewRow In dgvCtasctes.Rows
                 If Not Fila Is Nothing Then
-                    debe = Fila.Cells(9).Value
-                    haber = Fila.Cells(10).Value
-                    saldo = saldoant + debe - haber
-                    Fila.Cells(11).Value = saldo
+                    debe = Fila.Cells(7).Value
+                    haber = Fila.Cells(8).Value
+                    saldo = saldoant - debe + haber
+                    Fila.Cells(9).Value = saldo
                     saldoant = saldo
-                    detalle = Fila.Cells(6).Value
+                    'detalle = Fila.Cells(6).Value
                     comando.CommandText = "UPDATE ctactepro SET SaldoCCPro = '" & saldo & "' WHERE DetalleCCPro = '" & detalle & "' AND NroCCPro = '" & txtProveedor.Text & "' "
                     comando.ExecuteNonQuery()
-                    If Fila.Cells(12).Value = "PENDIENTE" Or Fila.Cells(12).Value = "LIQUIDADA" Then
+                    If Fila.Cells(10).Value = "PENDIENTE" Then
                         Fila.DefaultCellStyle.ForeColor = Color.Orange
                     End If
                 End If

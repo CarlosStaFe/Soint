@@ -773,7 +773,7 @@
     Private Sub GrabarCtaCte()
 
         Try
-            comando = New MySqlCommand("INSERT INTO ctactepro VALUES(@id, @idcpra, @prov, @fecha, @tipo, @prefijo, @subfijo, @detalle, @debe, @haber, @saldo, @obs)", conexion)
+            comando = New MySqlCommand("INSERT INTO ctactepro VALUES(@id, @idcpra, @prov, @fecha, @tipo, @prefijo, @subfijo, @detalle, @debe, @haber, @saldo, @estado, @obs)", conexion)
             comando.Parameters.AddWithValue("@id", 0)
             comando.Parameters.AddWithValue("@idcpra", id)
             comando.Parameters.AddWithValue("@prov", txtNroProvCpra.Text)
@@ -787,6 +787,7 @@
             comando.Parameters.AddWithValue("@debe", 0)
             comando.Parameters.AddWithValue("@haber", txtTotalCpra.Text)
             comando.Parameters.AddWithValue("@saldo", 0)
+            comando.Parameters.AddWithValue("@estado", "PENDIENTE")
             comando.Parameters.AddWithValue("@obs", "")
             comando.ExecuteNonQuery()
         Catch ex As Exception

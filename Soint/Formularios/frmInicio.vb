@@ -2,8 +2,6 @@
 
     'TODO: Este formulario se puede establecer fácilmente como pantalla de presentación para la aplicación desde la pestaña "Aplicación"
     '  del Diseñador de proyectos ("Propiedades" bajo el menú "Proyecto").
-
-
     Private Sub SplashScreen1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'Configure el texto del cuadro de diálogo en tiempo de ejecución según la información del ensamblado de la aplicación.  
 
@@ -11,6 +9,9 @@
         '  propiedades del proyecto (bajo el menú "Proyecto").
 
         'Título de la aplicación
+
+        'Process.Start("C:\xampp\xampp-control.exe")
+
         If My.Application.Info.Title <> "" Then
             ApplicationTitle.Text = My.Application.Info.Title
         Else

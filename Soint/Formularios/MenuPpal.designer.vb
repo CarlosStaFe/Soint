@@ -60,6 +60,7 @@ Partial Class MenuPpal
         Me.btnActualizarPro = New System.Windows.Forms.Button()
         Me.btnProveedores = New System.Windows.Forms.Button()
         Me.SubMenuObras = New System.Windows.Forms.Panel()
+        Me.btnPreventivos = New System.Windows.Forms.Button()
         Me.btnListarObras = New System.Windows.Forms.Button()
         Me.btnActualizarObra = New System.Windows.Forms.Button()
         Me.btnObras = New System.Windows.Forms.Button()
@@ -90,7 +91,6 @@ Partial Class MenuPpal
         Me.btnMaximizar = New System.Windows.Forms.PictureBox()
         Me.btnMinimizar = New System.Windows.Forms.PictureBox()
         Me.btnCerrar = New System.Windows.Forms.PictureBox()
-        Me.btnPreventivos = New System.Windows.Forms.Button()
         Me.PanelBotonesMenu.SuspendLayout()
         Me.PanelFormularios.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -745,6 +745,24 @@ Partial Class MenuPpal
         Me.SubMenuObras.Size = New System.Drawing.Size(233, 83)
         Me.SubMenuObras.TabIndex = 16
         '
+        'btnPreventivos
+        '
+        Me.btnPreventivos.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPreventivos.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnPreventivos.FlatAppearance.BorderSize = 0
+        Me.btnPreventivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPreventivos.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPreventivos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(2, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnPreventivos.Location = New System.Drawing.Point(0, 50)
+        Me.btnPreventivos.Name = "btnPreventivos"
+        Me.btnPreventivos.Padding = New System.Windows.Forms.Padding(50, 0, 0, 0)
+        Me.btnPreventivos.Size = New System.Drawing.Size(233, 25)
+        Me.btnPreventivos.TabIndex = 11
+        Me.btnPreventivos.Text = "Preventivos"
+        Me.btnPreventivos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPreventivos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnPreventivos.UseVisualStyleBackColor = True
+        '
         'btnListarObras
         '
         Me.btnListarObras.Cursor = System.Windows.Forms.Cursors.Hand
@@ -1230,24 +1248,6 @@ Partial Class MenuPpal
         Me.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.btnCerrar.TabIndex = 0
         Me.btnCerrar.TabStop = False
-        '
-        'btnPreventivos
-        '
-        Me.btnPreventivos.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnPreventivos.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnPreventivos.FlatAppearance.BorderSize = 0
-        Me.btnPreventivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPreventivos.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPreventivos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(2, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnPreventivos.Location = New System.Drawing.Point(0, 50)
-        Me.btnPreventivos.Name = "btnPreventivos"
-        Me.btnPreventivos.Padding = New System.Windows.Forms.Padding(50, 0, 0, 0)
-        Me.btnPreventivos.Size = New System.Drawing.Size(233, 25)
-        Me.btnPreventivos.TabIndex = 11
-        Me.btnPreventivos.Text = "Preventivos"
-        Me.btnPreventivos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPreventivos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnPreventivos.UseVisualStyleBackColor = True
         '
         'MenuPpal
         '

@@ -337,6 +337,13 @@ Public Class MenuPpal
 
     End Sub
 
+    Private Sub btnPagosPro_Click(sender As Object, e As EventArgs) Handles btnPagosPro.Click
+
+        MostrarHijo(frmPagosProv)
+        OcultarSubmenu()
+
+    End Sub
+
     Private Sub btnLibroCompras_Click(sender As Object, e As EventArgs) Handles btnLibroCompras.Click
 
         MostrarHijo(frmLibroIVACpra)

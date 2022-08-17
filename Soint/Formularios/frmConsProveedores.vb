@@ -53,6 +53,11 @@
             frmProv2.txtNroProvCpra.Text = dgvProveedores.CurrentRow.Cells(1).Value.ToString
             frmProv2.txtTitularCpra.Text = dgvProveedores.CurrentRow.Cells(2).Value.ToString
         End If
+        If senial = 3 Then
+            Dim frmProv3 As frmPagosProv = CType(Owner, frmPagosProv)
+            frmProv3.txtProveedor.Text = dgvProveedores.CurrentRow.Cells(1).Value.ToString
+            frmProv3.txtNombre.Text = dgvProveedores.CurrentRow.Cells(2).Value.ToString
+        End If
 
         Close()
 
