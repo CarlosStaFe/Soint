@@ -299,9 +299,24 @@ Public Class MenuPpal
         OcultarSubmenu()
 
     End Sub
+
+    Private Sub btnListarObras_Click(sender As Object, e As EventArgs) Handles btnListarObras.Click
+
+        MostrarHijo(frmListaObras)
+        OcultarSubmenu()
+
+    End Sub
+
     Private Sub btnPreventivos_Click(sender As Object, e As EventArgs) Handles btnPreventivos.Click
 
         MostrarHijo(frmPreventivo)
+        OcultarSubmenu()
+
+    End Sub
+
+    Private Sub btnComparativo_Click(sender As Object, e As EventArgs) Handles btnComparativo.Click
+
+        MostrarHijo(frmListaPrev)
         OcultarSubmenu()
 
     End Sub

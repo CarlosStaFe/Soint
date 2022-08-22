@@ -65,7 +65,11 @@ Partial Public Class dbsointDataSet
     
     Private tableoperadores As operadoresDataTable
     
+    Private tablepreventivo As preventivoDataTable
+    
     Private tableproveedores As proveedoresDataTable
+    
+    Private tablerecibo As reciboDataTable
     
     Private tablerubros As rubrosDataTable
     
@@ -166,8 +170,14 @@ Partial Public Class dbsointDataSet
             If (Not (ds.Tables("operadores")) Is Nothing) Then
                 MyBase.Tables.Add(New operadoresDataTable(ds.Tables("operadores")))
             End If
+            If (Not (ds.Tables("preventivo")) Is Nothing) Then
+                MyBase.Tables.Add(New preventivoDataTable(ds.Tables("preventivo")))
+            End If
             If (Not (ds.Tables("proveedores")) Is Nothing) Then
                 MyBase.Tables.Add(New proveedoresDataTable(ds.Tables("proveedores")))
+            End If
+            If (Not (ds.Tables("recibo")) Is Nothing) Then
+                MyBase.Tables.Add(New reciboDataTable(ds.Tables("recibo")))
             End If
             If (Not (ds.Tables("rubros")) Is Nothing) Then
                 MyBase.Tables.Add(New rubrosDataTable(ds.Tables("rubros")))
@@ -399,9 +409,29 @@ Partial Public Class dbsointDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property preventivo() As preventivoDataTable
+        Get
+            Return Me.tablepreventivo
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
     Public ReadOnly Property proveedores() As proveedoresDataTable
         Get
             Return Me.tableproveedores
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property recibo() As reciboDataTable
+        Get
+            Return Me.tablerecibo
         End Get
     End Property
     
@@ -562,8 +592,14 @@ Partial Public Class dbsointDataSet
             If (Not (ds.Tables("operadores")) Is Nothing) Then
                 MyBase.Tables.Add(New operadoresDataTable(ds.Tables("operadores")))
             End If
+            If (Not (ds.Tables("preventivo")) Is Nothing) Then
+                MyBase.Tables.Add(New preventivoDataTable(ds.Tables("preventivo")))
+            End If
             If (Not (ds.Tables("proveedores")) Is Nothing) Then
                 MyBase.Tables.Add(New proveedoresDataTable(ds.Tables("proveedores")))
+            End If
+            If (Not (ds.Tables("recibo")) Is Nothing) Then
+                MyBase.Tables.Add(New reciboDataTable(ds.Tables("recibo")))
             End If
             If (Not (ds.Tables("rubros")) Is Nothing) Then
                 MyBase.Tables.Add(New rubrosDataTable(ds.Tables("rubros")))
@@ -726,10 +762,22 @@ Partial Public Class dbsointDataSet
                 Me.tableoperadores.InitVars
             End If
         End If
+        Me.tablepreventivo = CType(MyBase.Tables("preventivo"),preventivoDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tablepreventivo) Is Nothing) Then
+                Me.tablepreventivo.InitVars
+            End If
+        End If
         Me.tableproveedores = CType(MyBase.Tables("proveedores"),proveedoresDataTable)
         If (initTable = true) Then
             If (Not (Me.tableproveedores) Is Nothing) Then
                 Me.tableproveedores.InitVars
+            End If
+        End If
+        Me.tablerecibo = CType(MyBase.Tables("recibo"),reciboDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tablerecibo) Is Nothing) Then
+                Me.tablerecibo.InitVars
             End If
         End If
         Me.tablerubros = CType(MyBase.Tables("rubros"),rubrosDataTable)
@@ -802,8 +850,12 @@ Partial Public Class dbsointDataSet
         MyBase.Tables.Add(Me.tableobras)
         Me.tableoperadores = New operadoresDataTable()
         MyBase.Tables.Add(Me.tableoperadores)
+        Me.tablepreventivo = New preventivoDataTable()
+        MyBase.Tables.Add(Me.tablepreventivo)
         Me.tableproveedores = New proveedoresDataTable()
         MyBase.Tables.Add(Me.tableproveedores)
+        Me.tablerecibo = New reciboDataTable()
+        MyBase.Tables.Add(Me.tablerecibo)
         Me.tablerubros = New rubrosDataTable()
         MyBase.Tables.Add(Me.tablerubros)
         Me.tablesubrubros = New subrubrosDataTable()
@@ -938,7 +990,19 @@ Partial Public Class dbsointDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Private Function ShouldSerializepreventivo() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Private Function ShouldSerializeproveedores() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Private Function ShouldSerializerecibo() As Boolean
         Return false
     End Function
     
@@ -1079,7 +1143,13 @@ Partial Public Class dbsointDataSet
     Public Delegate Sub operadoresRowChangeEventHandler(ByVal sender As Object, ByVal e As operadoresRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Public Delegate Sub preventivoRowChangeEventHandler(ByVal sender As Object, ByVal e As preventivoRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Delegate Sub proveedoresRowChangeEventHandler(ByVal sender As Object, ByVal e As proveedoresRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Public Delegate Sub reciboRowChangeEventHandler(ByVal sender As Object, ByVal e As reciboRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Delegate Sub rubrosRowChangeEventHandler(ByVal sender As Object, ByVal e As rubrosRowChangeEvent)
@@ -3183,6 +3253,12 @@ Partial Public Class dbsointDataSet
         
         Private columnTotalCpra As Global.System.Data.DataColumn
         
+        Private columnPagadoCpra As Global.System.Data.DataColumn
+        
+        Private columnRestoCpra As Global.System.Data.DataColumn
+        
+        Private columnEstadoCpra As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -3315,6 +3391,30 @@ Partial Public Class dbsointDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PagadoCpraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPagadoCpra
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property RestoCpraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRestoCpra
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property EstadoCpraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEstadoCpra
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3351,9 +3451,9 @@ Partial Public Class dbsointDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddcomprasRow(ByVal NroProvCpra As Integer, ByVal TitularCpra As String, ByVal FechaCpra As Date, ByVal TipoCbteCpra As String, ByVal PrefijoCpra As String, ByVal SubfijoCpra As String, ByVal NetoCpra As Double, ByVal IvaResCpra As Double, ByVal IvaNoResCpra As Double, ByVal ImpIntCpra As Double, ByVal TotalCpra As Double) As comprasRow
+        Public Overloads Function AddcomprasRow(ByVal NroProvCpra As Integer, ByVal TitularCpra As String, ByVal FechaCpra As Date, ByVal TipoCbteCpra As String, ByVal PrefijoCpra As String, ByVal SubfijoCpra As String, ByVal NetoCpra As Double, ByVal IvaResCpra As Double, ByVal IvaNoResCpra As Double, ByVal ImpIntCpra As Double, ByVal TotalCpra As Double, ByVal PagadoCpra As Double, ByVal RestoCpra As Double, ByVal EstadoCpra As String) As comprasRow
             Dim rowcomprasRow As comprasRow = CType(Me.NewRow,comprasRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, NroProvCpra, TitularCpra, FechaCpra, TipoCbteCpra, PrefijoCpra, SubfijoCpra, NetoCpra, IvaResCpra, IvaNoResCpra, ImpIntCpra, TotalCpra}
+            Dim columnValuesArray() As Object = New Object() {Nothing, NroProvCpra, TitularCpra, FechaCpra, TipoCbteCpra, PrefijoCpra, SubfijoCpra, NetoCpra, IvaResCpra, IvaNoResCpra, ImpIntCpra, TotalCpra, PagadoCpra, RestoCpra, EstadoCpra}
             rowcomprasRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowcomprasRow)
             Return rowcomprasRow
@@ -3394,6 +3494,9 @@ Partial Public Class dbsointDataSet
             Me.columnIvaNoResCpra = MyBase.Columns("IvaNoResCpra")
             Me.columnImpIntCpra = MyBase.Columns("ImpIntCpra")
             Me.columnTotalCpra = MyBase.Columns("TotalCpra")
+            Me.columnPagadoCpra = MyBase.Columns("PagadoCpra")
+            Me.columnRestoCpra = MyBase.Columns("RestoCpra")
+            Me.columnEstadoCpra = MyBase.Columns("EstadoCpra")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3423,6 +3526,12 @@ Partial Public Class dbsointDataSet
             MyBase.Columns.Add(Me.columnImpIntCpra)
             Me.columnTotalCpra = New Global.System.Data.DataColumn("TotalCpra", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTotalCpra)
+            Me.columnPagadoCpra = New Global.System.Data.DataColumn("PagadoCpra", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPagadoCpra)
+            Me.columnRestoCpra = New Global.System.Data.DataColumn("RestoCpra", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRestoCpra)
+            Me.columnEstadoCpra = New Global.System.Data.DataColumn("EstadoCpra", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEstadoCpra)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_Cpra}, true))
             Me.columnid_Cpra.AutoIncrement = true
             Me.columnid_Cpra.AutoIncrementSeed = -1
@@ -3433,6 +3542,7 @@ Partial Public Class dbsointDataSet
             Me.columnTipoCbteCpra.MaxLength = 5
             Me.columnPrefijoCpra.MaxLength = 4
             Me.columnSubfijoCpra.MaxLength = 8
+            Me.columnEstadoCpra.MaxLength = 15
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4247,6 +4357,10 @@ Partial Public Class dbsointDataSet
         
         Private columnObsCCCli As Global.System.Data.DataColumn
         
+        Private columnPagadoCCCli As Global.System.Data.DataColumn
+        
+        Private columnRestoCCCli As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -4379,6 +4493,22 @@ Partial Public Class dbsointDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PagadoCCCliColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPagadoCCCli
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property RestoCCCliColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRestoCCCli
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4415,9 +4545,9 @@ Partial Public Class dbsointDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddctactecliRow(ByVal NroCCCli As Integer, ByVal FechaCCCli As Date, ByVal TipoCbteCCCli As String, ByVal PrefijoCCCli As String, ByVal SubfijoCCCli As String, ByVal DetalleCCCli As String, ByVal DebeCCCli As Double, ByVal HaberCCCli As Double, ByVal SaldoCCCli As Double, ByVal EstadoCCCli As String, ByVal ObsCCCli As String) As ctactecliRow
+        Public Overloads Function AddctactecliRow(ByVal NroCCCli As Integer, ByVal FechaCCCli As Date, ByVal TipoCbteCCCli As String, ByVal PrefijoCCCli As String, ByVal SubfijoCCCli As String, ByVal DetalleCCCli As String, ByVal DebeCCCli As Double, ByVal HaberCCCli As Double, ByVal SaldoCCCli As Double, ByVal EstadoCCCli As String, ByVal ObsCCCli As String, ByVal PagadoCCCli As Double, ByVal RestoCCCli As Double) As ctactecliRow
             Dim rowctactecliRow As ctactecliRow = CType(Me.NewRow,ctactecliRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, NroCCCli, FechaCCCli, TipoCbteCCCli, PrefijoCCCli, SubfijoCCCli, DetalleCCCli, DebeCCCli, HaberCCCli, SaldoCCCli, EstadoCCCli, ObsCCCli}
+            Dim columnValuesArray() As Object = New Object() {Nothing, NroCCCli, FechaCCCli, TipoCbteCCCli, PrefijoCCCli, SubfijoCCCli, DetalleCCCli, DebeCCCli, HaberCCCli, SaldoCCCli, EstadoCCCli, ObsCCCli, PagadoCCCli, RestoCCCli}
             rowctactecliRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowctactecliRow)
             Return rowctactecliRow
@@ -4458,6 +4588,8 @@ Partial Public Class dbsointDataSet
             Me.columnSaldoCCCli = MyBase.Columns("SaldoCCCli")
             Me.columnEstadoCCCli = MyBase.Columns("EstadoCCCli")
             Me.columnObsCCCli = MyBase.Columns("ObsCCCli")
+            Me.columnPagadoCCCli = MyBase.Columns("PagadoCCCli")
+            Me.columnRestoCCCli = MyBase.Columns("RestoCCCli")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4487,6 +4619,10 @@ Partial Public Class dbsointDataSet
             MyBase.Columns.Add(Me.columnEstadoCCCli)
             Me.columnObsCCCli = New Global.System.Data.DataColumn("ObsCCCli", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnObsCCCli)
+            Me.columnPagadoCCCli = New Global.System.Data.DataColumn("PagadoCCCli", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPagadoCCCli)
+            Me.columnRestoCCCli = New Global.System.Data.DataColumn("RestoCCCli", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRestoCCCli)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_CCCli}, true))
             Me.columnid_CCCli.AutoIncrement = true
             Me.columnid_CCCli.AutoIncrementSeed = -1
@@ -4664,6 +4800,10 @@ Partial Public Class dbsointDataSet
         
         Private columnObsCCEmp As Global.System.Data.DataColumn
         
+        Private columnPagadoCCEmp As Global.System.Data.DataColumn
+        
+        Private columnRestoCCEmp As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -4812,6 +4952,22 @@ Partial Public Class dbsointDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PagadoCCEmpColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPagadoCCEmp
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property RestoCCEmpColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRestoCCEmp
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4848,9 +5004,9 @@ Partial Public Class dbsointDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddctacteempRow(ByVal NroCCEmp As Integer, ByVal FechaCCEmp As Date, ByVal TipoCbteCCEmp As String, ByVal SubfijoCCEmp As String, ByVal CantidadCCEmp As Double, ByVal DetalleCCEmp As String, ByVal ImpCCEmp As Double, ByVal TotalCCEmp As Double, ByVal DebeCCEmp As Double, ByVal HaberCCEmp As Double, ByVal SaldoCCEmp As Double, ByVal EstadoCCEmp As String, ByVal ObsCCEmp As String) As ctacteempRow
+        Public Overloads Function AddctacteempRow(ByVal NroCCEmp As Integer, ByVal FechaCCEmp As Date, ByVal TipoCbteCCEmp As String, ByVal SubfijoCCEmp As String, ByVal CantidadCCEmp As Double, ByVal DetalleCCEmp As String, ByVal ImpCCEmp As Double, ByVal TotalCCEmp As Double, ByVal DebeCCEmp As Double, ByVal HaberCCEmp As Double, ByVal SaldoCCEmp As Double, ByVal EstadoCCEmp As String, ByVal ObsCCEmp As String, ByVal PagadoCCEmp As Double, ByVal RestoCCEmp As Double) As ctacteempRow
             Dim rowctacteempRow As ctacteempRow = CType(Me.NewRow,ctacteempRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, NroCCEmp, FechaCCEmp, TipoCbteCCEmp, SubfijoCCEmp, CantidadCCEmp, DetalleCCEmp, ImpCCEmp, TotalCCEmp, DebeCCEmp, HaberCCEmp, SaldoCCEmp, EstadoCCEmp, ObsCCEmp}
+            Dim columnValuesArray() As Object = New Object() {Nothing, NroCCEmp, FechaCCEmp, TipoCbteCCEmp, SubfijoCCEmp, CantidadCCEmp, DetalleCCEmp, ImpCCEmp, TotalCCEmp, DebeCCEmp, HaberCCEmp, SaldoCCEmp, EstadoCCEmp, ObsCCEmp, PagadoCCEmp, RestoCCEmp}
             rowctacteempRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowctacteempRow)
             Return rowctacteempRow
@@ -4893,6 +5049,8 @@ Partial Public Class dbsointDataSet
             Me.columnSaldoCCEmp = MyBase.Columns("SaldoCCEmp")
             Me.columnEstadoCCEmp = MyBase.Columns("EstadoCCEmp")
             Me.columnObsCCEmp = MyBase.Columns("ObsCCEmp")
+            Me.columnPagadoCCEmp = MyBase.Columns("PagadoCCEmp")
+            Me.columnRestoCCEmp = MyBase.Columns("RestoCCEmp")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4926,6 +5084,10 @@ Partial Public Class dbsointDataSet
             MyBase.Columns.Add(Me.columnEstadoCCEmp)
             Me.columnObsCCEmp = New Global.System.Data.DataColumn("ObsCCEmp", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnObsCCEmp)
+            Me.columnPagadoCCEmp = New Global.System.Data.DataColumn("PagadoCCEmp", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPagadoCCEmp)
+            Me.columnRestoCCEmp = New Global.System.Data.DataColumn("RestoCCEmp", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRestoCCEmp)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_CCEmp}, true))
             Me.columnid_CCEmp.AutoIncrement = true
             Me.columnid_CCEmp.AutoIncrementSeed = -1
@@ -5100,6 +5262,10 @@ Partial Public Class dbsointDataSet
         
         Private columnObsCCPro As Global.System.Data.DataColumn
         
+        Private columnPagadoCCPro As Global.System.Data.DataColumn
+        
+        Private columnRestoCCPro As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -5240,6 +5406,22 @@ Partial Public Class dbsointDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PagadoCCProColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPagadoCCPro
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property RestoCCProColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRestoCCPro
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -5276,9 +5458,9 @@ Partial Public Class dbsointDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddctacteproRow(ByVal idCpra As Integer, ByVal NroCCPro As Integer, ByVal FechaCCPro As Date, ByVal TipoCbteCCPro As String, ByVal PrefijoCCPro As String, ByVal SubfijoCCPro As String, ByVal DetalleCCPro As String, ByVal DebeCCPro As Double, ByVal HaberCCPro As Double, ByVal SaldoCCPro As Double, ByVal EstadoCCPro As String, ByVal ObsCCPro As String) As ctacteproRow
+        Public Overloads Function AddctacteproRow(ByVal idCpra As Integer, ByVal NroCCPro As Integer, ByVal FechaCCPro As Date, ByVal TipoCbteCCPro As String, ByVal PrefijoCCPro As String, ByVal SubfijoCCPro As String, ByVal DetalleCCPro As String, ByVal DebeCCPro As Double, ByVal HaberCCPro As Double, ByVal SaldoCCPro As Double, ByVal EstadoCCPro As String, ByVal ObsCCPro As String, ByVal PagadoCCPro As Double, ByVal RestoCCPro As Double) As ctacteproRow
             Dim rowctacteproRow As ctacteproRow = CType(Me.NewRow,ctacteproRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, idCpra, NroCCPro, FechaCCPro, TipoCbteCCPro, PrefijoCCPro, SubfijoCCPro, DetalleCCPro, DebeCCPro, HaberCCPro, SaldoCCPro, EstadoCCPro, ObsCCPro}
+            Dim columnValuesArray() As Object = New Object() {Nothing, idCpra, NroCCPro, FechaCCPro, TipoCbteCCPro, PrefijoCCPro, SubfijoCCPro, DetalleCCPro, DebeCCPro, HaberCCPro, SaldoCCPro, EstadoCCPro, ObsCCPro, PagadoCCPro, RestoCCPro}
             rowctacteproRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowctacteproRow)
             Return rowctacteproRow
@@ -5320,6 +5502,8 @@ Partial Public Class dbsointDataSet
             Me.columnSaldoCCPro = MyBase.Columns("SaldoCCPro")
             Me.columnEstadoCCPro = MyBase.Columns("EstadoCCPro")
             Me.columnObsCCPro = MyBase.Columns("ObsCCPro")
+            Me.columnPagadoCCPro = MyBase.Columns("PagadoCCPro")
+            Me.columnRestoCCPro = MyBase.Columns("RestoCCPro")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5351,6 +5535,10 @@ Partial Public Class dbsointDataSet
             MyBase.Columns.Add(Me.columnEstadoCCPro)
             Me.columnObsCCPro = New Global.System.Data.DataColumn("ObsCCPro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnObsCCPro)
+            Me.columnPagadoCCPro = New Global.System.Data.DataColumn("PagadoCCPro", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPagadoCCPro)
+            Me.columnRestoCCPro = New Global.System.Data.DataColumn("RestoCCPro", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRestoCCPro)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_CCPro}, true))
             Me.columnid_CCPro.AutoIncrement = true
             Me.columnid_CCPro.AutoIncrementSeed = -1
@@ -6748,7 +6936,7 @@ Partial Public Class dbsointDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddgruposobrasRow(ByVal ObraGO As Integer, ByVal NombreGO As String, ByVal GrupoGO As Integer, ByVal ImporteGO As Double, ByVal ObsGO As String) As gruposobrasRow
+        Public Overloads Function AddgruposobrasRow(ByVal ObraGO As Integer, ByVal NombreGO As String, ByVal GrupoGO As String, ByVal ImporteGO As Double, ByVal ObsGO As String) As gruposobrasRow
             Dim rowgruposobrasRow As gruposobrasRow = CType(Me.NewRow,gruposobrasRow)
             Dim columnValuesArray() As Object = New Object() {Nothing, ObraGO, NombreGO, GrupoGO, ImporteGO, ObsGO}
             rowgruposobrasRow.ItemArray = columnValuesArray
@@ -6796,7 +6984,7 @@ Partial Public Class dbsointDataSet
             MyBase.Columns.Add(Me.columnObraGO)
             Me.columnNombreGO = New Global.System.Data.DataColumn("NombreGO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNombreGO)
-            Me.columnGrupoGO = New Global.System.Data.DataColumn("GrupoGO", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnGrupoGO = New Global.System.Data.DataColumn("GrupoGO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnGrupoGO)
             Me.columnImporteGO = New Global.System.Data.DataColumn("ImporteGO", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnImporteGO)
@@ -6809,6 +6997,7 @@ Partial Public Class dbsointDataSet
             Me.columnid_GO.AllowDBNull = false
             Me.columnid_GO.Unique = true
             Me.columnNombreGO.MaxLength = 30
+            Me.columnGrupoGO.MaxLength = 50
             Me.columnObsGO.MaxLength = 100
         End Sub
         
@@ -8429,6 +8618,352 @@ Partial Public Class dbsointDataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class preventivoDataTable
+        Inherits Global.System.Data.TypedTableBase(Of preventivoRow)
+        
+        Private columnid_Pre As Global.System.Data.DataColumn
+        
+        Private columnObraPre As Global.System.Data.DataColumn
+        
+        Private columnGrupoPre As Global.System.Data.DataColumn
+        
+        Private columnRubroPre As Global.System.Data.DataColumn
+        
+        Private columnSubRubPre As Global.System.Data.DataColumn
+        
+        Private columnDetallePre As Global.System.Data.DataColumn
+        
+        Private columnImpTotalPre As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "preventivo"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property id_PreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnid_Pre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ObraPreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnObraPre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property GrupoPreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGrupoPre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property RubroPreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRubroPre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property SubRubPreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSubRubPre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property DetallePreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDetallePre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ImpTotalPreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnImpTotalPre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As preventivoRow
+            Get
+                Return CType(Me.Rows(index),preventivoRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event preventivoRowChanging As preventivoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event preventivoRowChanged As preventivoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event preventivoRowDeleting As preventivoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event preventivoRowDeleted As preventivoRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overloads Sub AddpreventivoRow(ByVal row As preventivoRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overloads Function AddpreventivoRow(ByVal ObraPre As Integer, ByVal GrupoPre As String, ByVal RubroPre As String, ByVal SubRubPre As String, ByVal DetallePre As String, ByVal ImpTotalPre As Double) As preventivoRow
+            Dim rowpreventivoRow As preventivoRow = CType(Me.NewRow,preventivoRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, ObraPre, GrupoPre, RubroPre, SubRubPre, DetallePre, ImpTotalPre}
+            rowpreventivoRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowpreventivoRow)
+            Return rowpreventivoRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function FindByid_Pre(ByVal id_Pre As Integer) As preventivoRow
+            Return CType(Me.Rows.Find(New Object() {id_Pre}),preventivoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As preventivoDataTable = CType(MyBase.Clone,preventivoDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New preventivoDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnid_Pre = MyBase.Columns("id_Pre")
+            Me.columnObraPre = MyBase.Columns("ObraPre")
+            Me.columnGrupoPre = MyBase.Columns("GrupoPre")
+            Me.columnRubroPre = MyBase.Columns("RubroPre")
+            Me.columnSubRubPre = MyBase.Columns("SubRubPre")
+            Me.columnDetallePre = MyBase.Columns("DetallePre")
+            Me.columnImpTotalPre = MyBase.Columns("ImpTotalPre")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnid_Pre = New Global.System.Data.DataColumn("id_Pre", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnid_Pre)
+            Me.columnObraPre = New Global.System.Data.DataColumn("ObraPre", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnObraPre)
+            Me.columnGrupoPre = New Global.System.Data.DataColumn("GrupoPre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGrupoPre)
+            Me.columnRubroPre = New Global.System.Data.DataColumn("RubroPre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRubroPre)
+            Me.columnSubRubPre = New Global.System.Data.DataColumn("SubRubPre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSubRubPre)
+            Me.columnDetallePre = New Global.System.Data.DataColumn("DetallePre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDetallePre)
+            Me.columnImpTotalPre = New Global.System.Data.DataColumn("ImpTotalPre", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnImpTotalPre)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_Pre}, true))
+            Me.columnid_Pre.AutoIncrement = true
+            Me.columnid_Pre.AutoIncrementSeed = -1
+            Me.columnid_Pre.AutoIncrementStep = -1
+            Me.columnid_Pre.AllowDBNull = false
+            Me.columnid_Pre.Unique = true
+            Me.columnGrupoPre.MaxLength = 50
+            Me.columnRubroPre.MaxLength = 50
+            Me.columnSubRubPre.MaxLength = 50
+            Me.columnDetallePre.MaxLength = 50
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function NewpreventivoRow() As preventivoRow
+            Return CType(Me.NewRow,preventivoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New preventivoRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(preventivoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.preventivoRowChangedEvent) Is Nothing) Then
+                RaiseEvent preventivoRowChanged(Me, New preventivoRowChangeEvent(CType(e.Row,preventivoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.preventivoRowChangingEvent) Is Nothing) Then
+                RaiseEvent preventivoRowChanging(Me, New preventivoRowChangeEvent(CType(e.Row,preventivoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.preventivoRowDeletedEvent) Is Nothing) Then
+                RaiseEvent preventivoRowDeleted(Me, New preventivoRowChangeEvent(CType(e.Row,preventivoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.preventivoRowDeletingEvent) Is Nothing) Then
+                RaiseEvent preventivoRowDeleting(Me, New preventivoRowChangeEvent(CType(e.Row,preventivoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub RemovepreventivoRow(ByVal row As preventivoRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As dbsointDataSet = New dbsointDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "preventivoDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class proveedoresDataTable
         Inherits Global.System.Data.TypedTableBase(Of proveedoresRow)
         
@@ -8810,6 +9345,390 @@ Partial Public Class dbsointDataSet
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "proveedoresDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class reciboDataTable
+        Inherits Global.System.Data.TypedTableBase(Of reciboRow)
+        
+        Private columnid_Rec As Global.System.Data.DataColumn
+        
+        Private columnFecVtoRec As Global.System.Data.DataColumn
+        
+        Private columnDetalleRec As Global.System.Data.DataColumn
+        
+        Private columnPeriodoRec As Global.System.Data.DataColumn
+        
+        Private columnImpCbteRec As Global.System.Data.DataColumn
+        
+        Private columnPagoAntRec As Global.System.Data.DataColumn
+        
+        Private columnSaldoAntRec As Global.System.Data.DataColumn
+        
+        Private columnPagoActRec As Global.System.Data.DataColumn
+        
+        Private columnSaldoActRec As Global.System.Data.DataColumn
+        
+        Private columnObsRec As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "recibo"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property id_RecColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnid_Rec
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property FecVtoRecColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFecVtoRec
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property DetalleRecColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDetalleRec
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PeriodoRecColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPeriodoRec
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ImpCbteRecColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnImpCbteRec
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PagoAntRecColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPagoAntRec
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property SaldoAntRecColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSaldoAntRec
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PagoActRecColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPagoActRec
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property SaldoActRecColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSaldoActRec
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ObsRecColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnObsRec
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As reciboRow
+            Get
+                Return CType(Me.Rows(index),reciboRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event reciboRowChanging As reciboRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event reciboRowChanged As reciboRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event reciboRowDeleting As reciboRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event reciboRowDeleted As reciboRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overloads Sub AddreciboRow(ByVal row As reciboRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overloads Function AddreciboRow(ByVal FecVtoRec As Date, ByVal DetalleRec As String, ByVal PeriodoRec As String, ByVal ImpCbteRec As Double, ByVal PagoAntRec As Double, ByVal SaldoAntRec As Double, ByVal PagoActRec As Double, ByVal SaldoActRec As Double, ByVal ObsRec As String) As reciboRow
+            Dim rowreciboRow As reciboRow = CType(Me.NewRow,reciboRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, FecVtoRec, DetalleRec, PeriodoRec, ImpCbteRec, PagoAntRec, SaldoAntRec, PagoActRec, SaldoActRec, ObsRec}
+            rowreciboRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowreciboRow)
+            Return rowreciboRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function FindByid_Rec(ByVal id_Rec As Integer) As reciboRow
+            Return CType(Me.Rows.Find(New Object() {id_Rec}),reciboRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As reciboDataTable = CType(MyBase.Clone,reciboDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New reciboDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnid_Rec = MyBase.Columns("id_Rec")
+            Me.columnFecVtoRec = MyBase.Columns("FecVtoRec")
+            Me.columnDetalleRec = MyBase.Columns("DetalleRec")
+            Me.columnPeriodoRec = MyBase.Columns("PeriodoRec")
+            Me.columnImpCbteRec = MyBase.Columns("ImpCbteRec")
+            Me.columnPagoAntRec = MyBase.Columns("PagoAntRec")
+            Me.columnSaldoAntRec = MyBase.Columns("SaldoAntRec")
+            Me.columnPagoActRec = MyBase.Columns("PagoActRec")
+            Me.columnSaldoActRec = MyBase.Columns("SaldoActRec")
+            Me.columnObsRec = MyBase.Columns("ObsRec")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnid_Rec = New Global.System.Data.DataColumn("id_Rec", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnid_Rec)
+            Me.columnFecVtoRec = New Global.System.Data.DataColumn("FecVtoRec", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFecVtoRec)
+            Me.columnDetalleRec = New Global.System.Data.DataColumn("DetalleRec", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDetalleRec)
+            Me.columnPeriodoRec = New Global.System.Data.DataColumn("PeriodoRec", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPeriodoRec)
+            Me.columnImpCbteRec = New Global.System.Data.DataColumn("ImpCbteRec", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnImpCbteRec)
+            Me.columnPagoAntRec = New Global.System.Data.DataColumn("PagoAntRec", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPagoAntRec)
+            Me.columnSaldoAntRec = New Global.System.Data.DataColumn("SaldoAntRec", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSaldoAntRec)
+            Me.columnPagoActRec = New Global.System.Data.DataColumn("PagoActRec", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPagoActRec)
+            Me.columnSaldoActRec = New Global.System.Data.DataColumn("SaldoActRec", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSaldoActRec)
+            Me.columnObsRec = New Global.System.Data.DataColumn("ObsRec", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnObsRec)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_Rec}, true))
+            Me.columnid_Rec.AutoIncrement = true
+            Me.columnid_Rec.AutoIncrementSeed = -1
+            Me.columnid_Rec.AutoIncrementStep = -1
+            Me.columnid_Rec.AllowDBNull = false
+            Me.columnid_Rec.Unique = true
+            Me.columnDetalleRec.MaxLength = 50
+            Me.columnPeriodoRec.MaxLength = 6
+            Me.columnObsRec.MaxLength = 100
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function NewreciboRow() As reciboRow
+            Return CType(Me.NewRow,reciboRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New reciboRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(reciboRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.reciboRowChangedEvent) Is Nothing) Then
+                RaiseEvent reciboRowChanged(Me, New reciboRowChangeEvent(CType(e.Row,reciboRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.reciboRowChangingEvent) Is Nothing) Then
+                RaiseEvent reciboRowChanging(Me, New reciboRowChangeEvent(CType(e.Row,reciboRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.reciboRowDeletedEvent) Is Nothing) Then
+                RaiseEvent reciboRowDeleted(Me, New reciboRowChangeEvent(CType(e.Row,reciboRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.reciboRowDeletingEvent) Is Nothing) Then
+                RaiseEvent reciboRowDeleting(Me, New reciboRowChangeEvent(CType(e.Row,reciboRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub RemovereciboRow(ByVal row As reciboRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As dbsointDataSet = New dbsointDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "reciboDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -11038,6 +11957,51 @@ Partial Public Class dbsointDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property PagadoCpra() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablecompras.PagadoCpraColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'PagadoCpra' de la tabla 'compras' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablecompras.PagadoCpraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property RestoCpra() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablecompras.RestoCpraColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'RestoCpra' de la tabla 'compras' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablecompras.RestoCpraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property EstadoCpra() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablecompras.EstadoCpraColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'EstadoCpra' de la tabla 'compras' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablecompras.EstadoCpraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsNroProvCpraNull() As Boolean
             Return Me.IsNull(Me.tablecompras.NroProvCpraColumn)
         End Function
@@ -11166,6 +12130,42 @@ Partial Public Class dbsointDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetTotalCpraNull()
             Me(Me.tablecompras.TotalCpraColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsPagadoCpraNull() As Boolean
+            Return Me.IsNull(Me.tablecompras.PagadoCpraColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetPagadoCpraNull()
+            Me(Me.tablecompras.PagadoCpraColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsRestoCpraNull() As Boolean
+            Return Me.IsNull(Me.tablecompras.RestoCpraColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetRestoCpraNull()
+            Me(Me.tablecompras.RestoCpraColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsEstadoCpraNull() As Boolean
+            Return Me.IsNull(Me.tablecompras.EstadoCpraColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetEstadoCpraNull()
+            Me(Me.tablecompras.EstadoCpraColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -11659,6 +12659,36 @@ Partial Public Class dbsointDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property PagadoCCCli() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablectactecli.PagadoCCCliColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'PagadoCCCli' de la tabla 'ctactecli' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablectactecli.PagadoCCCliColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property RestoCCCli() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablectactecli.RestoCCCliColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'RestoCCCli' de la tabla 'ctactecli' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablectactecli.RestoCCCliColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsNroCCCliNull() As Boolean
             Return Me.IsNull(Me.tablectactecli.NroCCCliColumn)
         End Function
@@ -11787,6 +12817,30 @@ Partial Public Class dbsointDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetObsCCCliNull()
             Me(Me.tablectactecli.ObsCCCliColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsPagadoCCCliNull() As Boolean
+            Return Me.IsNull(Me.tablectactecli.PagadoCCCliColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetPagadoCCCliNull()
+            Me(Me.tablectactecli.PagadoCCCliColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsRestoCCCliNull() As Boolean
+            Return Me.IsNull(Me.tablectactecli.RestoCCCliColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetRestoCCCliNull()
+            Me(Me.tablectactecli.RestoCCCliColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -12013,6 +13067,36 @@ Partial Public Class dbsointDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property PagadoCCEmp() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablectacteemp.PagadoCCEmpColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'PagadoCCEmp' de la tabla 'ctacteemp' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablectacteemp.PagadoCCEmpColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property RestoCCEmp() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablectacteemp.RestoCCEmpColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'RestoCCEmp' de la tabla 'ctacteemp' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablectacteemp.RestoCCEmpColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsNroCCEmpNull() As Boolean
             Return Me.IsNull(Me.tablectacteemp.NroCCEmpColumn)
         End Function
@@ -12165,6 +13249,30 @@ Partial Public Class dbsointDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetObsCCEmpNull()
             Me(Me.tablectacteemp.ObsCCEmpColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsPagadoCCEmpNull() As Boolean
+            Return Me.IsNull(Me.tablectacteemp.PagadoCCEmpColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetPagadoCCEmpNull()
+            Me(Me.tablectacteemp.PagadoCCEmpColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsRestoCCEmpNull() As Boolean
+            Return Me.IsNull(Me.tablectacteemp.RestoCCEmpColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetRestoCCEmpNull()
+            Me(Me.tablectacteemp.RestoCCEmpColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -12376,6 +13484,36 @@ Partial Public Class dbsointDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property PagadoCCPro() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablectactepro.PagadoCCProColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'PagadoCCPro' de la tabla 'ctactepro' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablectactepro.PagadoCCProColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property RestoCCPro() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablectactepro.RestoCCProColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'RestoCCPro' de la tabla 'ctactepro' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablectactepro.RestoCCProColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsidCpraNull() As Boolean
             Return Me.IsNull(Me.tablectactepro.idCpraColumn)
         End Function
@@ -12516,6 +13654,30 @@ Partial Public Class dbsointDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetObsCCProNull()
             Me(Me.tablectactepro.ObsCCProColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsPagadoCCProNull() As Boolean
+            Return Me.IsNull(Me.tablectactepro.PagadoCCProColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetPagadoCCProNull()
+            Me(Me.tablectactepro.PagadoCCProColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsRestoCCProNull() As Boolean
+            Return Me.IsNull(Me.tablectactepro.RestoCCProColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetRestoCCProNull()
+            Me(Me.tablectactepro.RestoCCProColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -13284,10 +14446,10 @@ Partial Public Class dbsointDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property GrupoGO() As Integer
+        Public Property GrupoGO() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablegruposobras.GrupoGOColumn),Integer)
+                    Return CType(Me(Me.tablegruposobras.GrupoGOColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'GrupoGO' de la tabla 'gruposobras' es DBNull.", e)
                 End Try
@@ -14208,6 +15370,195 @@ Partial Public Class dbsointDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
+    Partial Public Class preventivoRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tablepreventivo As preventivoDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tablepreventivo = CType(Me.Table,preventivoDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property id_Pre() As Integer
+            Get
+                Return CType(Me(Me.tablepreventivo.id_PreColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablepreventivo.id_PreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ObraPre() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablepreventivo.ObraPreColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ObraPre' de la tabla 'preventivo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepreventivo.ObraPreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property GrupoPre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablepreventivo.GrupoPreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'GrupoPre' de la tabla 'preventivo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepreventivo.GrupoPreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property RubroPre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablepreventivo.RubroPreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'RubroPre' de la tabla 'preventivo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepreventivo.RubroPreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property SubRubPre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablepreventivo.SubRubPreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'SubRubPre' de la tabla 'preventivo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepreventivo.SubRubPreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property DetallePre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablepreventivo.DetallePreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'DetallePre' de la tabla 'preventivo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepreventivo.DetallePreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ImpTotalPre() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablepreventivo.ImpTotalPreColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ImpTotalPre' de la tabla 'preventivo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepreventivo.ImpTotalPreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsObraPreNull() As Boolean
+            Return Me.IsNull(Me.tablepreventivo.ObraPreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetObraPreNull()
+            Me(Me.tablepreventivo.ObraPreColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsGrupoPreNull() As Boolean
+            Return Me.IsNull(Me.tablepreventivo.GrupoPreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetGrupoPreNull()
+            Me(Me.tablepreventivo.GrupoPreColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsRubroPreNull() As Boolean
+            Return Me.IsNull(Me.tablepreventivo.RubroPreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetRubroPreNull()
+            Me(Me.tablepreventivo.RubroPreColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsSubRubPreNull() As Boolean
+            Return Me.IsNull(Me.tablepreventivo.SubRubPreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetSubRubPreNull()
+            Me(Me.tablepreventivo.SubRubPreColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsDetallePreNull() As Boolean
+            Return Me.IsNull(Me.tablepreventivo.DetallePreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetDetallePreNull()
+            Me(Me.tablepreventivo.DetallePreColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsImpTotalPreNull() As Boolean
+            Return Me.IsNull(Me.tablepreventivo.ImpTotalPreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetImpTotalPreNull()
+            Me(Me.tablepreventivo.ImpTotalPreColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
     Partial Public Class proveedoresRow
         Inherits Global.System.Data.DataRow
         
@@ -14553,6 +15904,276 @@ Partial Public Class dbsointDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetObsProvNull()
             Me(Me.tableproveedores.ObsProvColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class reciboRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tablerecibo As reciboDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tablerecibo = CType(Me.Table,reciboDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property id_Rec() As Integer
+            Get
+                Return CType(Me(Me.tablerecibo.id_RecColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablerecibo.id_RecColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property FecVtoRec() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tablerecibo.FecVtoRecColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'FecVtoRec' de la tabla 'recibo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablerecibo.FecVtoRecColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property DetalleRec() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablerecibo.DetalleRecColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'DetalleRec' de la tabla 'recibo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablerecibo.DetalleRecColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property PeriodoRec() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablerecibo.PeriodoRecColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'PeriodoRec' de la tabla 'recibo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablerecibo.PeriodoRecColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ImpCbteRec() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablerecibo.ImpCbteRecColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ImpCbteRec' de la tabla 'recibo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablerecibo.ImpCbteRecColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property PagoAntRec() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablerecibo.PagoAntRecColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'PagoAntRec' de la tabla 'recibo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablerecibo.PagoAntRecColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property SaldoAntRec() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablerecibo.SaldoAntRecColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'SaldoAntRec' de la tabla 'recibo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablerecibo.SaldoAntRecColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property PagoActRec() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablerecibo.PagoActRecColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'PagoActRec' de la tabla 'recibo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablerecibo.PagoActRecColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property SaldoActRec() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablerecibo.SaldoActRecColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'SaldoActRec' de la tabla 'recibo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablerecibo.SaldoActRecColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ObsRec() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablerecibo.ObsRecColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ObsRec' de la tabla 'recibo' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablerecibo.ObsRecColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsFecVtoRecNull() As Boolean
+            Return Me.IsNull(Me.tablerecibo.FecVtoRecColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetFecVtoRecNull()
+            Me(Me.tablerecibo.FecVtoRecColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsDetalleRecNull() As Boolean
+            Return Me.IsNull(Me.tablerecibo.DetalleRecColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetDetalleRecNull()
+            Me(Me.tablerecibo.DetalleRecColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsPeriodoRecNull() As Boolean
+            Return Me.IsNull(Me.tablerecibo.PeriodoRecColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetPeriodoRecNull()
+            Me(Me.tablerecibo.PeriodoRecColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsImpCbteRecNull() As Boolean
+            Return Me.IsNull(Me.tablerecibo.ImpCbteRecColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetImpCbteRecNull()
+            Me(Me.tablerecibo.ImpCbteRecColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsPagoAntRecNull() As Boolean
+            Return Me.IsNull(Me.tablerecibo.PagoAntRecColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetPagoAntRecNull()
+            Me(Me.tablerecibo.PagoAntRecColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsSaldoAntRecNull() As Boolean
+            Return Me.IsNull(Me.tablerecibo.SaldoAntRecColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetSaldoAntRecNull()
+            Me(Me.tablerecibo.SaldoAntRecColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsPagoActRecNull() As Boolean
+            Return Me.IsNull(Me.tablerecibo.PagoActRecColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetPagoActRecNull()
+            Me(Me.tablerecibo.PagoActRecColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsSaldoActRecNull() As Boolean
+            Return Me.IsNull(Me.tablerecibo.SaldoActRecColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetSaldoActRecNull()
+            Me(Me.tablerecibo.SaldoActRecColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsObsRecNull() As Boolean
+            Return Me.IsNull(Me.tablerecibo.ObsRecColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetObsRecNull()
+            Me(Me.tablerecibo.ObsRecColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -15690,6 +17311,42 @@ Partial Public Class dbsointDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Public Class preventivoRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As preventivoRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New(ByVal row As preventivoRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property Row() As preventivoRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Class proveedoresRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -15708,6 +17365,42 @@ Partial Public Class dbsointDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property Row() As proveedoresRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Public Class reciboRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As reciboRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New(ByVal row As reciboRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property Row() As reciboRow
             Get
                 Return Me.eventRow
             End Get
@@ -20336,6 +22029,9 @@ Namespace dbsointDataSetTableAdapters
             tableMapping.ColumnMappings.Add("IvaNoResCpra", "IvaNoResCpra")
             tableMapping.ColumnMappings.Add("ImpIntCpra", "ImpIntCpra")
             tableMapping.ColumnMappings.Add("TotalCpra", "TotalCpra")
+            tableMapping.ColumnMappings.Add("PagadoCpra", "PagadoCpra")
+            tableMapping.ColumnMappings.Add("RestoCpra", "RestoCpra")
+            tableMapping.ColumnMappings.Add("EstadoCpra", "EstadoCpra")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -20348,7 +22044,10 @@ Namespace dbsointDataSetTableAdapters
                 "IS NULL) OR (`NetoCpra` = @p15)) AND ((@p16 = 1 AND `IvaResCpra` IS NULL) OR (`I"& _ 
                 "vaResCpra` = @p17)) AND ((@p18 = 1 AND `IvaNoResCpra` IS NULL) OR (`IvaNoResCpra"& _ 
                 "` = @p19)) AND ((@p20 = 1 AND `ImpIntCpra` IS NULL) OR (`ImpIntCpra` = @p21)) AN"& _ 
-                "D ((@p22 = 1 AND `TotalCpra` IS NULL) OR (`TotalCpra` = @p23)))"
+                "D ((@p22 = 1 AND `TotalCpra` IS NULL) OR (`TotalCpra` = @p23)) AND ((@p24 = 1 AN"& _ 
+                "D `PagadoCpra` IS NULL) OR (`PagadoCpra` = @p25)) AND ((@p26 = 1 AND `RestoCpra`"& _ 
+                " IS NULL) OR (`RestoCpra` = @p27)) AND ((@p28 = 1 AND `EstadoCpra` IS NULL) OR ("& _ 
+                "`EstadoCpra` = @p29)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -20545,12 +22244,63 @@ Namespace dbsointDataSetTableAdapters
             param.SourceColumn = "TotalCpra"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p24"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p25"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p26"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "RestoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p27"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p28"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "EstadoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p29"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "EstadoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
             Me._adapter.InsertCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `compras` (`NroProvCpra`, `TitularCpra`, `FechaCpra`, `TipoCbteCpra`,"& _ 
                 " `PrefijoCpra`, `SubfijoCpra`, `NetoCpra`, `IvaResCpra`, `IvaNoResCpra`, `ImpInt"& _ 
-                "Cpra`, `TotalCpra`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @"& _ 
-                "p11)"
+                "Cpra`, `TotalCpra`, `PagadoCpra`, `RestoCpra`, `EstadoCpra`) VALUES (@p1, @p2, @"& _ 
+                "p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -20640,21 +22390,48 @@ Namespace dbsointDataSetTableAdapters
             param.SourceColumn = "TotalCpra"
             param.SourceVersion = Global.System.Data.DataRowVersion.Current
             Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p12"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p13"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p14"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "EstadoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
             Me._adapter.UpdateCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `compras` SET `NroProvCpra` = @p1, `TitularCpra` = @p2, `FechaCpra` = @p3,"& _ 
                 " `TipoCbteCpra` = @p4, `PrefijoCpra` = @p5, `SubfijoCpra` = @p6, `NetoCpra` = @p"& _ 
                 "7, `IvaResCpra` = @p8, `IvaNoResCpra` = @p9, `ImpIntCpra` = @p10, `TotalCpra` = "& _ 
-                "@p11 WHERE ((`id_Cpra` = @p12) AND ((@p13 = 1 AND `NroProvCpra` IS NULL) OR (`Nr"& _ 
-                "oProvCpra` = @p14)) AND ((@p15 = 1 AND `TitularCpra` IS NULL) OR (`TitularCpra` "& _ 
-                "= @p16)) AND ((@p17 = 1 AND `FechaCpra` IS NULL) OR (`FechaCpra` = @p18)) AND (("& _ 
-                "@p19 = 1 AND `TipoCbteCpra` IS NULL) OR (`TipoCbteCpra` = @p20)) AND ((@p21 = 1 "& _ 
-                "AND `PrefijoCpra` IS NULL) OR (`PrefijoCpra` = @p22)) AND ((@p23 = 1 AND `Subfij"& _ 
-                "oCpra` IS NULL) OR (`SubfijoCpra` = @p24)) AND ((@p25 = 1 AND `NetoCpra` IS NULL"& _ 
-                ") OR (`NetoCpra` = @p26)) AND ((@p27 = 1 AND `IvaResCpra` IS NULL) OR (`IvaResCp"& _ 
-                "ra` = @p28)) AND ((@p29 = 1 AND `IvaNoResCpra` IS NULL) OR (`IvaNoResCpra` = @p3"& _ 
-                "0)) AND ((@p31 = 1 AND `ImpIntCpra` IS NULL) OR (`ImpIntCpra` = @p32)) AND ((@p3"& _ 
-                "3 = 1 AND `TotalCpra` IS NULL) OR (`TotalCpra` = @p34)))"
+                "@p11, `PagadoCpra` = @p12, `RestoCpra` = @p13, `EstadoCpra` = @p14 WHERE ((`id_C"& _ 
+                "pra` = @p15) AND ((@p16 = 1 AND `NroProvCpra` IS NULL) OR (`NroProvCpra` = @p17)"& _ 
+                ") AND ((@p18 = 1 AND `TitularCpra` IS NULL) OR (`TitularCpra` = @p19)) AND ((@p2"& _ 
+                "0 = 1 AND `FechaCpra` IS NULL) OR (`FechaCpra` = @p21)) AND ((@p22 = 1 AND `Tipo"& _ 
+                "CbteCpra` IS NULL) OR (`TipoCbteCpra` = @p23)) AND ((@p24 = 1 AND `PrefijoCpra` "& _ 
+                "IS NULL) OR (`PrefijoCpra` = @p25)) AND ((@p26 = 1 AND `SubfijoCpra` IS NULL) OR"& _ 
+                " (`SubfijoCpra` = @p27)) AND ((@p28 = 1 AND `NetoCpra` IS NULL) OR (`NetoCpra` ="& _ 
+                " @p29)) AND ((@p30 = 1 AND `IvaResCpra` IS NULL) OR (`IvaResCpra` = @p31)) AND ("& _ 
+                "(@p32 = 1 AND `IvaNoResCpra` IS NULL) OR (`IvaNoResCpra` = @p33)) AND ((@p34 = 1"& _ 
+                " AND `ImpIntCpra` IS NULL) OR (`ImpIntCpra` = @p35)) AND ((@p36 = 1 AND `TotalCp"& _ 
+                "ra` IS NULL) OR (`TotalCpra` = @p37)) AND ((@p38 = 1 AND `PagadoCpra` IS NULL) O"& _ 
+                "R (`PagadoCpra` = @p39)) AND ((@p40 = 1 AND `RestoCpra` IS NULL) OR (`RestoCpra`"& _ 
+                " = @p41)) AND ((@p42 = 1 AND `EstadoCpra` IS NULL) OR (`EstadoCpra` = @p43)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -20746,6 +22523,30 @@ Namespace dbsointDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p12"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p13"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p14"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "EstadoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p15"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -20753,7 +22554,7 @@ Namespace dbsointDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p13"
+            param.ParameterName = "@p16"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -20762,7 +22563,7 @@ Namespace dbsointDataSetTableAdapters
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p14"
+            param.ParameterName = "@p17"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -20770,7 +22571,7 @@ Namespace dbsointDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p15"
+            param.ParameterName = "@p18"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -20779,7 +22580,7 @@ Namespace dbsointDataSetTableAdapters
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p16"
+            param.ParameterName = "@p19"
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
@@ -20787,7 +22588,7 @@ Namespace dbsointDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p17"
+            param.ParameterName = "@p20"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -20796,7 +22597,7 @@ Namespace dbsointDataSetTableAdapters
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p18"
+            param.ParameterName = "@p21"
             param.DbType = Global.System.Data.DbType.[Date]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Date]
             param.IsNullable = true
@@ -20804,41 +22605,41 @@ Namespace dbsointDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p19"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "TipoCbteCpra"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p20"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
-            param.IsNullable = true
-            param.SourceColumn = "TipoCbteCpra"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p21"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "PrefijoCpra"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p22"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "PrefijoCpra"
+            param.SourceColumn = "TipoCbteCpra"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p23"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "TipoCbteCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p24"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PrefijoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p25"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "PrefijoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p26"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -20847,7 +22648,7 @@ Namespace dbsointDataSetTableAdapters
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p24"
+            param.ParameterName = "@p27"
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
@@ -20855,50 +22656,50 @@ Namespace dbsointDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p25"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "NetoCpra"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p26"
-            param.DbType = Global.System.Data.DbType.[Double]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
-            param.IsNullable = true
-            param.SourceColumn = "NetoCpra"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p27"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "IvaResCpra"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p28"
-            param.DbType = Global.System.Data.DbType.[Double]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "IvaResCpra"
+            param.SourceColumn = "NetoCpra"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p29"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
-            param.SourceColumn = "IvaNoResCpra"
+            param.SourceColumn = "NetoCpra"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p30"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "IvaResCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p31"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "IvaResCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p32"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "IvaNoResCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p33"
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
@@ -20906,37 +22707,88 @@ Namespace dbsointDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p31"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "ImpIntCpra"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p32"
-            param.DbType = Global.System.Data.DbType.[Double]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
-            param.IsNullable = true
-            param.SourceColumn = "ImpIntCpra"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p33"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "TotalCpra"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p34"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "ImpIntCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p35"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "ImpIntCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p36"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "TotalCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p37"
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
             param.SourceColumn = "TotalCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p38"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p39"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p40"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "RestoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p41"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p42"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "EstadoCpra"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p43"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "EstadoCpra"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
         End Sub
@@ -20956,7 +22808,7 @@ Namespace dbsointDataSetTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT `id_Cpra`, `NroProvCpra`, `TitularCpra`, `FechaCpra`, `TipoCbteCpra`, `Pre"& _ 
                 "fijoCpra`, `SubfijoCpra`, `NetoCpra`, `IvaResCpra`, `IvaNoResCpra`, `ImpIntCpra`"& _ 
-                ", `TotalCpra` FROM `compras`"
+                ", `TotalCpra`, `PagadoCpra`, `RestoCpra`, `EstadoCpra` FROM `compras`"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -21016,7 +22868,7 @@ Namespace dbsointDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p5 As String, ByVal p7 As Global.System.Nullable(Of Date), ByVal p9 As String, ByVal p11 As String, ByVal p13 As String, ByVal p15 As Global.System.Nullable(Of Double), ByVal p17 As Global.System.Nullable(Of Double), ByVal p19 As Global.System.Nullable(Of Double), ByVal p21 As Global.System.Nullable(Of Double), ByVal p23 As Global.System.Nullable(Of Double)) As Integer
+        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p5 As String, ByVal p7 As Global.System.Nullable(Of Date), ByVal p9 As String, ByVal p11 As String, ByVal p13 As String, ByVal p15 As Global.System.Nullable(Of Double), ByVal p17 As Global.System.Nullable(Of Double), ByVal p19 As Global.System.Nullable(Of Double), ByVal p21 As Global.System.Nullable(Of Double), ByVal p23 As Global.System.Nullable(Of Double), ByVal p25 As Global.System.Nullable(Of Double), ByVal p27 As Global.System.Nullable(Of Double), ByVal p29 As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(p1,Integer)
             If (p3.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -21095,6 +22947,27 @@ Namespace dbsointDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
+            If (p25.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(p25.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
+            End If
+            If (p27.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(p27.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
+            End If
+            If (p29 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(p29,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -21114,7 +22987,7 @@ Namespace dbsointDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As String, ByVal p3 As Global.System.Nullable(Of Date), ByVal p4 As String, ByVal p5 As String, ByVal p6 As String, ByVal p7 As Global.System.Nullable(Of Double), ByVal p8 As Global.System.Nullable(Of Double), ByVal p9 As Global.System.Nullable(Of Double), ByVal p10 As Global.System.Nullable(Of Double), ByVal p11 As Global.System.Nullable(Of Double)) As Integer
+        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As String, ByVal p3 As Global.System.Nullable(Of Date), ByVal p4 As String, ByVal p5 As String, ByVal p6 As String, ByVal p7 As Global.System.Nullable(Of Double), ByVal p8 As Global.System.Nullable(Of Double), ByVal p9 As Global.System.Nullable(Of Double), ByVal p10 As Global.System.Nullable(Of Double), ByVal p11 As Global.System.Nullable(Of Double), ByVal p12 As Global.System.Nullable(Of Double), ByVal p13 As Global.System.Nullable(Of Double), ByVal p14 As String) As Integer
             If (p1.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(p1.Value,Integer)
             Else
@@ -21170,6 +23043,21 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
+            If (p12.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(p12.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (p13.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(p13.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (p14 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(p14,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -21201,18 +23089,24 @@ Namespace dbsointDataSetTableAdapters
                     ByVal p9 As Global.System.Nullable(Of Double),  _
                     ByVal p10 As Global.System.Nullable(Of Double),  _
                     ByVal p11 As Global.System.Nullable(Of Double),  _
-                    ByVal p12 As Integer,  _
-                    ByVal p14 As Global.System.Nullable(Of Integer),  _
-                    ByVal p16 As String,  _
-                    ByVal p18 As Global.System.Nullable(Of Date),  _
-                    ByVal p20 As String,  _
-                    ByVal p22 As String,  _
-                    ByVal p24 As String,  _
-                    ByVal p26 As Global.System.Nullable(Of Double),  _
-                    ByVal p28 As Global.System.Nullable(Of Double),  _
-                    ByVal p30 As Global.System.Nullable(Of Double),  _
-                    ByVal p32 As Global.System.Nullable(Of Double),  _
-                    ByVal p34 As Global.System.Nullable(Of Double)) As Integer
+                    ByVal p12 As Global.System.Nullable(Of Double),  _
+                    ByVal p13 As Global.System.Nullable(Of Double),  _
+                    ByVal p14 As String,  _
+                    ByVal p15 As Integer,  _
+                    ByVal p17 As Global.System.Nullable(Of Integer),  _
+                    ByVal p19 As String,  _
+                    ByVal p21 As Global.System.Nullable(Of Date),  _
+                    ByVal p23 As String,  _
+                    ByVal p25 As String,  _
+                    ByVal p27 As String,  _
+                    ByVal p29 As Global.System.Nullable(Of Double),  _
+                    ByVal p31 As Global.System.Nullable(Of Double),  _
+                    ByVal p33 As Global.System.Nullable(Of Double),  _
+                    ByVal p35 As Global.System.Nullable(Of Double),  _
+                    ByVal p37 As Global.System.Nullable(Of Double),  _
+                    ByVal p39 As Global.System.Nullable(Of Double),  _
+                    ByVal p41 As Global.System.Nullable(Of Double),  _
+                    ByVal p43 As String) As Integer
             If (p1.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(p1.Value,Integer)
             Else
@@ -21268,83 +23162,119 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(p12,Integer)
-            If (p14.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(p14.Value,Integer)
+            If (p12.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(p12.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (p13.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(p13.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (p14 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
-            End If
-            If (p16 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(p16,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(p14,String)
             End If
-            If (p18.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(p18.Value,Date)
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(p15,Integer)
+            If (p17.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(p17.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
-            If (p20 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            If (p19 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(p20,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(p19,String)
             End If
-            If (p22 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+            If (p21.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(p21.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(p22,String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
-            If (p24 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            If (p23 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(p24,String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(p23,String)
             End If
-            If (p26.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(p26.Value,Double)
+            If (p25 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(p25,String)
             End If
-            If (p28.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(p28.Value,Double)
+            If (p27 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(p27,String)
             End If
-            If (p30.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(p30.Value,Double)
+            If (p29.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(p29.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             End If
-            If (p32.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(p32.Value,Double)
+            If (p31.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(p31.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             End If
-            If (p34.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(p34.Value,Double)
+            If (p33.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(p33.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+            End If
+            If (p35.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(p35.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+            End If
+            If (p37.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(p37.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+            End If
+            If (p39.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(p39.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
+            End If
+            If (p41.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(p41.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+            End If
+            If (p43 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(p43,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -22778,6 +24708,8 @@ Namespace dbsointDataSetTableAdapters
             tableMapping.ColumnMappings.Add("SaldoCCCli", "SaldoCCCli")
             tableMapping.ColumnMappings.Add("EstadoCCCli", "EstadoCCCli")
             tableMapping.ColumnMappings.Add("ObsCCCli", "ObsCCCli")
+            tableMapping.ColumnMappings.Add("PagadoCCCli", "PagadoCCCli")
+            tableMapping.ColumnMappings.Add("RestoCCCli", "RestoCCCli")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -22790,7 +24722,9 @@ Namespace dbsointDataSetTableAdapters
                 "eCCCli` IS NULL) OR (`DebeCCCli` = @p15)) AND ((@p16 = 1 AND `HaberCCCli` IS NUL"& _ 
                 "L) OR (`HaberCCCli` = @p17)) AND ((@p18 = 1 AND `SaldoCCCli` IS NULL) OR (`Saldo"& _ 
                 "CCCli` = @p19)) AND ((@p20 = 1 AND `EstadoCCCli` IS NULL) OR (`EstadoCCCli` = @p"& _ 
-                "21)) AND ((@p22 = 1 AND `ObsCCCli` IS NULL) OR (`ObsCCCli` = @p23)))"
+                "21)) AND ((@p22 = 1 AND `ObsCCCli` IS NULL) OR (`ObsCCCli` = @p23)) AND ((@p24 ="& _ 
+                " 1 AND `PagadoCCCli` IS NULL) OR (`PagadoCCCli` = @p25)) AND ((@p26 = 1 AND `Res"& _ 
+                "toCCCli` IS NULL) OR (`RestoCCCli` = @p27)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -22987,12 +24921,46 @@ Namespace dbsointDataSetTableAdapters
             param.SourceColumn = "ObsCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p24"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p25"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p26"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p27"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
             Me._adapter.InsertCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `ctactecli` (`NroCCCli`, `FechaCCCli`, `TipoCbteCCCli`, `PrefijoCCCli"& _ 
                 "`, `SubfijoCCCli`, `DetalleCCCli`, `DebeCCCli`, `HaberCCCli`, `SaldoCCCli`, `Est"& _ 
-                "adoCCCli`, `ObsCCCli`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10"& _ 
-                ", @p11)"
+                "adoCCCli`, `ObsCCCli`, `PagadoCCCli`, `RestoCCCli`) VALUES (@p1, @p2, @p3, @p4, "& _ 
+                "@p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -23082,21 +25050,40 @@ Namespace dbsointDataSetTableAdapters
             param.SourceColumn = "ObsCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Current
             Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p12"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p13"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
             Me._adapter.UpdateCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `ctactecli` SET `NroCCCli` = @p1, `FechaCCCli` = @p2, `TipoCbteCCCli` = @p"& _ 
                 "3, `PrefijoCCCli` = @p4, `SubfijoCCCli` = @p5, `DetalleCCCli` = @p6, `DebeCCCli`"& _ 
                 " = @p7, `HaberCCCli` = @p8, `SaldoCCCli` = @p9, `EstadoCCCli` = @p10, `ObsCCCli`"& _ 
-                " = @p11 WHERE ((`id_CCCli` = @p12) AND ((@p13 = 1 AND `NroCCCli` IS NULL) OR (`N"& _ 
-                "roCCCli` = @p14)) AND ((@p15 = 1 AND `FechaCCCli` IS NULL) OR (`FechaCCCli` = @p"& _ 
-                "16)) AND ((@p17 = 1 AND `TipoCbteCCCli` IS NULL) OR (`TipoCbteCCCli` = @p18)) AN"& _ 
-                "D ((@p19 = 1 AND `PrefijoCCCli` IS NULL) OR (`PrefijoCCCli` = @p20)) AND ((@p21 "& _ 
-                "= 1 AND `SubfijoCCCli` IS NULL) OR (`SubfijoCCCli` = @p22)) AND ((@p23 = 1 AND `"& _ 
-                "DetalleCCCli` IS NULL) OR (`DetalleCCCli` = @p24)) AND ((@p25 = 1 AND `DebeCCCli"& _ 
-                "` IS NULL) OR (`DebeCCCli` = @p26)) AND ((@p27 = 1 AND `HaberCCCli` IS NULL) OR "& _ 
-                "(`HaberCCCli` = @p28)) AND ((@p29 = 1 AND `SaldoCCCli` IS NULL) OR (`SaldoCCCli`"& _ 
-                " = @p30)) AND ((@p31 = 1 AND `EstadoCCCli` IS NULL) OR (`EstadoCCCli` = @p32)) A"& _ 
-                "ND ((@p33 = 1 AND `ObsCCCli` IS NULL) OR (`ObsCCCli` = @p34)))"
+                " = @p11, `PagadoCCCli` = @p12, `RestoCCCli` = @p13 WHERE ((`id_CCCli` = @p14) AN"& _ 
+                "D ((@p15 = 1 AND `NroCCCli` IS NULL) OR (`NroCCCli` = @p16)) AND ((@p17 = 1 AND "& _ 
+                "`FechaCCCli` IS NULL) OR (`FechaCCCli` = @p18)) AND ((@p19 = 1 AND `TipoCbteCCCl"& _ 
+                "i` IS NULL) OR (`TipoCbteCCCli` = @p20)) AND ((@p21 = 1 AND `PrefijoCCCli` IS NU"& _ 
+                "LL) OR (`PrefijoCCCli` = @p22)) AND ((@p23 = 1 AND `SubfijoCCCli` IS NULL) OR (`"& _ 
+                "SubfijoCCCli` = @p24)) AND ((@p25 = 1 AND `DetalleCCCli` IS NULL) OR (`DetalleCC"& _ 
+                "Cli` = @p26)) AND ((@p27 = 1 AND `DebeCCCli` IS NULL) OR (`DebeCCCli` = @p28)) A"& _ 
+                "ND ((@p29 = 1 AND `HaberCCCli` IS NULL) OR (`HaberCCCli` = @p30)) AND ((@p31 = 1"& _ 
+                " AND `SaldoCCCli` IS NULL) OR (`SaldoCCCli` = @p32)) AND ((@p33 = 1 AND `EstadoC"& _ 
+                "CCli` IS NULL) OR (`EstadoCCCli` = @p34)) AND ((@p35 = 1 AND `ObsCCCli` IS NULL)"& _ 
+                " OR (`ObsCCCli` = @p36)) AND ((@p37 = 1 AND `PagadoCCCli` IS NULL) OR (`PagadoCC"& _ 
+                "Cli` = @p38)) AND ((@p39 = 1 AND `RestoCCCli` IS NULL) OR (`RestoCCCli` = @p40))"& _ 
+                ")"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -23188,6 +25175,22 @@ Namespace dbsointDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p12"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p13"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p14"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -23195,37 +25198,20 @@ Namespace dbsointDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p13"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "NroCCCli"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p14"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "NroCCCli"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p15"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "FechaCCCli"
+            param.SourceColumn = "NroCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p16"
-            param.DbType = Global.System.Data.DbType.[Date]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Date]
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "FechaCCCli"
+            param.SourceColumn = "NroCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -23233,16 +25219,16 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "TipoCbteCCCli"
+            param.SourceColumn = "FechaCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p18"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.DbType = Global.System.Data.DbType.[Date]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Date]
             param.IsNullable = true
-            param.SourceColumn = "TipoCbteCCCli"
+            param.SourceColumn = "FechaCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -23250,7 +25236,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "PrefijoCCCli"
+            param.SourceColumn = "TipoCbteCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -23259,7 +25245,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "PrefijoCCCli"
+            param.SourceColumn = "TipoCbteCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -23267,7 +25253,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "SubfijoCCCli"
+            param.SourceColumn = "PrefijoCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -23276,7 +25262,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "SubfijoCCCli"
+            param.SourceColumn = "PrefijoCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -23284,7 +25270,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "DetalleCCCli"
+            param.SourceColumn = "SubfijoCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -23293,7 +25279,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "DetalleCCCli"
+            param.SourceColumn = "SubfijoCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -23301,16 +25287,16 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "DebeCCCli"
+            param.SourceColumn = "DetalleCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p26"
-            param.DbType = Global.System.Data.DbType.[Double]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "DebeCCCli"
+            param.SourceColumn = "DetalleCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -23318,7 +25304,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "HaberCCCli"
+            param.SourceColumn = "DebeCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -23327,7 +25313,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
-            param.SourceColumn = "HaberCCCli"
+            param.SourceColumn = "DebeCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -23335,7 +25321,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "SaldoCCCli"
+            param.SourceColumn = "HaberCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -23344,7 +25330,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
-            param.SourceColumn = "SaldoCCCli"
+            param.SourceColumn = "HaberCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -23352,16 +25338,16 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "EstadoCCCli"
+            param.SourceColumn = "SaldoCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p32"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
-            param.SourceColumn = "EstadoCCCli"
+            param.SourceColumn = "SaldoCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -23369,7 +25355,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "ObsCCCli"
+            param.SourceColumn = "EstadoCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -23378,7 +25364,58 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
+            param.SourceColumn = "EstadoCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p35"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
             param.SourceColumn = "ObsCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p36"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "ObsCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p37"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p38"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p39"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCCli"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p40"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCCli"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
         End Sub
@@ -23398,7 +25435,7 @@ Namespace dbsointDataSetTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT `id_CCCli`, `NroCCCli`, `FechaCCCli`, `TipoCbteCCCli`, `PrefijoCCCli`, `Su"& _ 
                 "bfijoCCCli`, `DetalleCCCli`, `DebeCCCli`, `HaberCCCli`, `SaldoCCCli`, `EstadoCCC"& _ 
-                "li`, `ObsCCCli` FROM `ctactecli`"
+                "li`, `ObsCCCli`, `PagadoCCCli`, `RestoCCCli` FROM `ctactecli`"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -23458,7 +25495,7 @@ Namespace dbsointDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p5 As Global.System.Nullable(Of Date), ByVal p7 As String, ByVal p9 As String, ByVal p11 As String, ByVal p13 As String, ByVal p15 As Global.System.Nullable(Of Double), ByVal p17 As Global.System.Nullable(Of Double), ByVal p19 As Global.System.Nullable(Of Double), ByVal p21 As String, ByVal p23 As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p5 As Global.System.Nullable(Of Date), ByVal p7 As String, ByVal p9 As String, ByVal p11 As String, ByVal p13 As String, ByVal p15 As Global.System.Nullable(Of Double), ByVal p17 As Global.System.Nullable(Of Double), ByVal p19 As Global.System.Nullable(Of Double), ByVal p21 As String, ByVal p23 As String, ByVal p25 As Global.System.Nullable(Of Double), ByVal p27 As Global.System.Nullable(Of Double)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(p1,Integer)
             If (p3.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -23537,6 +25574,20 @@ Namespace dbsointDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(22).Value = CType(p23,String)
             End If
+            If (p25.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(p25.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
+            End If
+            If (p27.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(p27.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -23556,7 +25607,7 @@ Namespace dbsointDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As Global.System.Nullable(Of Date), ByVal p3 As String, ByVal p4 As String, ByVal p5 As String, ByVal p6 As String, ByVal p7 As Global.System.Nullable(Of Double), ByVal p8 As Global.System.Nullable(Of Double), ByVal p9 As Global.System.Nullable(Of Double), ByVal p10 As String, ByVal p11 As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As Global.System.Nullable(Of Date), ByVal p3 As String, ByVal p4 As String, ByVal p5 As String, ByVal p6 As String, ByVal p7 As Global.System.Nullable(Of Double), ByVal p8 As Global.System.Nullable(Of Double), ByVal p9 As Global.System.Nullable(Of Double), ByVal p10 As String, ByVal p11 As String, ByVal p12 As Global.System.Nullable(Of Double), ByVal p13 As Global.System.Nullable(Of Double)) As Integer
             If (p1.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(p1.Value,Integer)
             Else
@@ -23612,6 +25663,16 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(10).Value = CType(p11,String)
             End If
+            If (p12.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(p12.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (p13.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(p13.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -23643,18 +25704,22 @@ Namespace dbsointDataSetTableAdapters
                     ByVal p9 As Global.System.Nullable(Of Double),  _
                     ByVal p10 As String,  _
                     ByVal p11 As String,  _
-                    ByVal p12 As Integer,  _
-                    ByVal p14 As Global.System.Nullable(Of Integer),  _
-                    ByVal p16 As Global.System.Nullable(Of Date),  _
-                    ByVal p18 As String,  _
+                    ByVal p12 As Global.System.Nullable(Of Double),  _
+                    ByVal p13 As Global.System.Nullable(Of Double),  _
+                    ByVal p14 As Integer,  _
+                    ByVal p16 As Global.System.Nullable(Of Integer),  _
+                    ByVal p18 As Global.System.Nullable(Of Date),  _
                     ByVal p20 As String,  _
                     ByVal p22 As String,  _
                     ByVal p24 As String,  _
-                    ByVal p26 As Global.System.Nullable(Of Double),  _
+                    ByVal p26 As String,  _
                     ByVal p28 As Global.System.Nullable(Of Double),  _
                     ByVal p30 As Global.System.Nullable(Of Double),  _
-                    ByVal p32 As String,  _
-                    ByVal p34 As String) As Integer
+                    ByVal p32 As Global.System.Nullable(Of Double),  _
+                    ByVal p34 As String,  _
+                    ByVal p36 As String,  _
+                    ByVal p38 As Global.System.Nullable(Of Double),  _
+                    ByVal p40 As Global.System.Nullable(Of Double)) As Integer
             If (p1.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(p1.Value,Integer)
             Else
@@ -23710,27 +25775,30 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(10).Value = CType(p11,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(p12,Integer)
-            If (p14.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(p14.Value,Integer)
+            If (p12.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(p12.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
+            If (p13.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(p13.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(p14,Integer)
             If (p16.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(p16.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(p16.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
-            If (p18 Is Nothing) Then
+            If (p18.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(p18.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(p18,String)
             End If
             If (p20 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
@@ -23753,12 +25821,12 @@ Namespace dbsointDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(23).Value = CType(p24,String)
             End If
-            If (p26.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(p26.Value,Double)
-            Else
+            If (p26 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(p26,String)
             End If
             If (p28.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
@@ -23774,12 +25842,12 @@ Namespace dbsointDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             End If
-            If (p32 Is Nothing) Then
+            If (p32.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(p32.Value,Double)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(p32,String)
             End If
             If (p34 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
@@ -23787,6 +25855,27 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(33).Value = CType(p34,String)
+            End If
+            If (p36 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(p36,String)
+            End If
+            If (p38.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(p38.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+            End If
+            If (p40.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(p40.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -23945,6 +26034,8 @@ Namespace dbsointDataSetTableAdapters
             tableMapping.ColumnMappings.Add("SaldoCCEmp", "SaldoCCEmp")
             tableMapping.ColumnMappings.Add("EstadoCCEmp", "EstadoCCEmp")
             tableMapping.ColumnMappings.Add("ObsCCEmp", "ObsCCEmp")
+            tableMapping.ColumnMappings.Add("PagadoCCEmp", "PagadoCCEmp")
+            tableMapping.ColumnMappings.Add("RestoCCEmp", "RestoCCEmp")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -23959,7 +26050,9 @@ Namespace dbsointDataSetTableAdapters
                 "Emp` = @p19)) AND ((@p20 = 1 AND `HaberCCEmp` IS NULL) OR (`HaberCCEmp` = @p21))"& _ 
                 " AND ((@p22 = 1 AND `SaldoCCEmp` IS NULL) OR (`SaldoCCEmp` = @p23)) AND ((@p24 ="& _ 
                 " 1 AND `EstadoCCEmp` IS NULL) OR (`EstadoCCEmp` = @p25)) AND ((@p26 = 1 AND `Obs"& _ 
-                "CCEmp` IS NULL) OR (`ObsCCEmp` = @p27)))"
+                "CCEmp` IS NULL) OR (`ObsCCEmp` = @p27)) AND ((@p28 = 1 AND `PagadoCCEmp` IS NULL"& _ 
+                ") OR (`PagadoCCEmp` = @p29)) AND ((@p30 = 1 AND `RestoCCEmp` IS NULL) OR (`Resto"& _ 
+                "CCEmp` = @p31)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -24190,12 +26283,47 @@ Namespace dbsointDataSetTableAdapters
             param.SourceColumn = "ObsCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p28"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p29"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p30"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p31"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
             Me._adapter.InsertCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `ctacteemp` (`NroCCEmp`, `FechaCCEmp`, `TipoCbteCCEmp`, `SubfijoCCEmp"& _ 
                 "`, `CantidadCCEmp`, `DetalleCCEmp`, `ImpCCEmp`, `TotalCCEmp`, `DebeCCEmp`, `Habe"& _ 
-                "rCCEmp`, `SaldoCCEmp`, `EstadoCCEmp`, `ObsCCEmp`) VALUES (@p1, @p2, @p3, @p4, @p"& _ 
-                "5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13)"
+                "rCCEmp`, `SaldoCCEmp`, `EstadoCCEmp`, `ObsCCEmp`, `PagadoCCEmp`, `RestoCCEmp`) V"& _ 
+                "ALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14"& _ 
+                ", @p15)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -24301,23 +26429,42 @@ Namespace dbsointDataSetTableAdapters
             param.SourceColumn = "ObsCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Current
             Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p14"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p15"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
             Me._adapter.UpdateCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `ctacteemp` SET `NroCCEmp` = @p1, `FechaCCEmp` = @p2, `TipoCbteCCEmp` = @p"& _ 
                 "3, `SubfijoCCEmp` = @p4, `CantidadCCEmp` = @p5, `DetalleCCEmp` = @p6, `ImpCCEmp`"& _ 
                 " = @p7, `TotalCCEmp` = @p8, `DebeCCEmp` = @p9, `HaberCCEmp` = @p10, `SaldoCCEmp`"& _ 
-                " = @p11, `EstadoCCEmp` = @p12, `ObsCCEmp` = @p13 WHERE ((`id_CCEmp` = @p14) AND "& _ 
-                "((@p15 = 1 AND `NroCCEmp` IS NULL) OR (`NroCCEmp` = @p16)) AND ((@p17 = 1 AND `F"& _ 
-                "echaCCEmp` IS NULL) OR (`FechaCCEmp` = @p18)) AND ((@p19 = 1 AND `TipoCbteCCEmp`"& _ 
-                " IS NULL) OR (`TipoCbteCCEmp` = @p20)) AND ((@p21 = 1 AND `SubfijoCCEmp` IS NULL"& _ 
-                ") OR (`SubfijoCCEmp` = @p22)) AND ((@p23 = 1 AND `CantidadCCEmp` IS NULL) OR (`C"& _ 
-                "antidadCCEmp` = @p24)) AND ((@p25 = 1 AND `DetalleCCEmp` IS NULL) OR (`DetalleCC"& _ 
-                "Emp` = @p26)) AND ((@p27 = 1 AND `ImpCCEmp` IS NULL) OR (`ImpCCEmp` = @p28)) AND"& _ 
-                " ((@p29 = 1 AND `TotalCCEmp` IS NULL) OR (`TotalCCEmp` = @p30)) AND ((@p31 = 1 A"& _ 
-                "ND `DebeCCEmp` IS NULL) OR (`DebeCCEmp` = @p32)) AND ((@p33 = 1 AND `HaberCCEmp`"& _ 
-                " IS NULL) OR (`HaberCCEmp` = @p34)) AND ((@p35 = 1 AND `SaldoCCEmp` IS NULL) OR "& _ 
-                "(`SaldoCCEmp` = @p36)) AND ((@p37 = 1 AND `EstadoCCEmp` IS NULL) OR (`EstadoCCEm"& _ 
-                "p` = @p38)) AND ((@p39 = 1 AND `ObsCCEmp` IS NULL) OR (`ObsCCEmp` = @p40)))"
+                " = @p11, `EstadoCCEmp` = @p12, `ObsCCEmp` = @p13, `PagadoCCEmp` = @p14, `RestoCC"& _ 
+                "Emp` = @p15 WHERE ((`id_CCEmp` = @p16) AND ((@p17 = 1 AND `NroCCEmp` IS NULL) OR"& _ 
+                " (`NroCCEmp` = @p18)) AND ((@p19 = 1 AND `FechaCCEmp` IS NULL) OR (`FechaCCEmp` "& _ 
+                "= @p20)) AND ((@p21 = 1 AND `TipoCbteCCEmp` IS NULL) OR (`TipoCbteCCEmp` = @p22)"& _ 
+                ") AND ((@p23 = 1 AND `SubfijoCCEmp` IS NULL) OR (`SubfijoCCEmp` = @p24)) AND ((@"& _ 
+                "p25 = 1 AND `CantidadCCEmp` IS NULL) OR (`CantidadCCEmp` = @p26)) AND ((@p27 = 1"& _ 
+                " AND `DetalleCCEmp` IS NULL) OR (`DetalleCCEmp` = @p28)) AND ((@p29 = 1 AND `Imp"& _ 
+                "CCEmp` IS NULL) OR (`ImpCCEmp` = @p30)) AND ((@p31 = 1 AND `TotalCCEmp` IS NULL)"& _ 
+                " OR (`TotalCCEmp` = @p32)) AND ((@p33 = 1 AND `DebeCCEmp` IS NULL) OR (`DebeCCEm"& _ 
+                "p` = @p34)) AND ((@p35 = 1 AND `HaberCCEmp` IS NULL) OR (`HaberCCEmp` = @p36)) A"& _ 
+                "ND ((@p37 = 1 AND `SaldoCCEmp` IS NULL) OR (`SaldoCCEmp` = @p38)) AND ((@p39 = 1"& _ 
+                " AND `EstadoCCEmp` IS NULL) OR (`EstadoCCEmp` = @p40)) AND ((@p41 = 1 AND `ObsCC"& _ 
+                "Emp` IS NULL) OR (`ObsCCEmp` = @p42)) AND ((@p43 = 1 AND `PagadoCCEmp` IS NULL) "& _ 
+                "OR (`PagadoCCEmp` = @p44)) AND ((@p45 = 1 AND `RestoCCEmp` IS NULL) OR (`RestoCC"& _ 
+                "Emp` = @p46)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -24425,6 +26572,22 @@ Namespace dbsointDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p14"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p15"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p16"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -24432,37 +26595,20 @@ Namespace dbsointDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p15"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "NroCCEmp"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p16"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "NroCCEmp"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p17"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "FechaCCEmp"
+            param.SourceColumn = "NroCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p18"
-            param.DbType = Global.System.Data.DbType.[Date]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Date]
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "FechaCCEmp"
+            param.SourceColumn = "NroCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -24470,16 +26616,16 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "TipoCbteCCEmp"
+            param.SourceColumn = "FechaCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p20"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.DbType = Global.System.Data.DbType.[Date]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Date]
             param.IsNullable = true
-            param.SourceColumn = "TipoCbteCCEmp"
+            param.SourceColumn = "FechaCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -24487,7 +26633,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "SubfijoCCEmp"
+            param.SourceColumn = "TipoCbteCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -24496,7 +26642,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "SubfijoCCEmp"
+            param.SourceColumn = "TipoCbteCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -24504,16 +26650,16 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "CantidadCCEmp"
+            param.SourceColumn = "SubfijoCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p24"
-            param.DbType = Global.System.Data.DbType.[Double]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "CantidadCCEmp"
+            param.SourceColumn = "SubfijoCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -24521,16 +26667,16 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "DetalleCCEmp"
+            param.SourceColumn = "CantidadCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p26"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
-            param.SourceColumn = "DetalleCCEmp"
+            param.SourceColumn = "CantidadCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -24538,16 +26684,16 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "ImpCCEmp"
+            param.SourceColumn = "DetalleCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p28"
-            param.DbType = Global.System.Data.DbType.[Double]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "ImpCCEmp"
+            param.SourceColumn = "DetalleCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -24555,7 +26701,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "TotalCCEmp"
+            param.SourceColumn = "ImpCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -24564,7 +26710,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
-            param.SourceColumn = "TotalCCEmp"
+            param.SourceColumn = "ImpCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -24572,7 +26718,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "DebeCCEmp"
+            param.SourceColumn = "TotalCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -24581,7 +26727,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
-            param.SourceColumn = "DebeCCEmp"
+            param.SourceColumn = "TotalCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -24589,7 +26735,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "HaberCCEmp"
+            param.SourceColumn = "DebeCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -24598,7 +26744,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
-            param.SourceColumn = "HaberCCEmp"
+            param.SourceColumn = "DebeCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -24606,7 +26752,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "SaldoCCEmp"
+            param.SourceColumn = "HaberCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -24615,7 +26761,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
-            param.SourceColumn = "SaldoCCEmp"
+            param.SourceColumn = "HaberCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -24623,16 +26769,16 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "EstadoCCEmp"
+            param.SourceColumn = "SaldoCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p38"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
-            param.SourceColumn = "EstadoCCEmp"
+            param.SourceColumn = "SaldoCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -24640,7 +26786,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "ObsCCEmp"
+            param.SourceColumn = "EstadoCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -24649,7 +26795,58 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
+            param.SourceColumn = "EstadoCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p41"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
             param.SourceColumn = "ObsCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p42"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "ObsCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p43"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p44"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p45"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCEmp"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p46"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCEmp"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
         End Sub
@@ -24669,7 +26866,8 @@ Namespace dbsointDataSetTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT `id_CCEmp`, `NroCCEmp`, `FechaCCEmp`, `TipoCbteCCEmp`, `SubfijoCCEmp`, `Ca"& _ 
                 "ntidadCCEmp`, `DetalleCCEmp`, `ImpCCEmp`, `TotalCCEmp`, `DebeCCEmp`, `HaberCCEmp"& _ 
-                "`, `SaldoCCEmp`, `EstadoCCEmp`, `ObsCCEmp` FROM `ctacteemp`"
+                "`, `SaldoCCEmp`, `EstadoCCEmp`, `ObsCCEmp`, `PagadoCCEmp`, `RestoCCEmp` FROM `ct"& _ 
+                "acteemp`"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -24729,7 +26927,23 @@ Namespace dbsointDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p5 As Global.System.Nullable(Of Date), ByVal p7 As String, ByVal p9 As String, ByVal p11 As Global.System.Nullable(Of Double), ByVal p13 As String, ByVal p15 As Global.System.Nullable(Of Double), ByVal p17 As Global.System.Nullable(Of Double), ByVal p19 As Global.System.Nullable(Of Double), ByVal p21 As Global.System.Nullable(Of Double), ByVal p23 As Global.System.Nullable(Of Double), ByVal p25 As String, ByVal p27 As String) As Integer
+        Public Overloads Overridable Function Delete( _
+                    ByVal p1 As Integer,  _
+                    ByVal p3 As Global.System.Nullable(Of Integer),  _
+                    ByVal p5 As Global.System.Nullable(Of Date),  _
+                    ByVal p7 As String,  _
+                    ByVal p9 As String,  _
+                    ByVal p11 As Global.System.Nullable(Of Double),  _
+                    ByVal p13 As String,  _
+                    ByVal p15 As Global.System.Nullable(Of Double),  _
+                    ByVal p17 As Global.System.Nullable(Of Double),  _
+                    ByVal p19 As Global.System.Nullable(Of Double),  _
+                    ByVal p21 As Global.System.Nullable(Of Double),  _
+                    ByVal p23 As Global.System.Nullable(Of Double),  _
+                    ByVal p25 As String,  _
+                    ByVal p27 As String,  _
+                    ByVal p29 As Global.System.Nullable(Of Double),  _
+                    ByVal p31 As Global.System.Nullable(Of Double)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(p1,Integer)
             If (p3.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -24822,6 +27036,20 @@ Namespace dbsointDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(26).Value = CType(p27,String)
             End If
+            If (p29.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(p29.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
+            End If
+            If (p31.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(p31.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -24841,7 +27069,7 @@ Namespace dbsointDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As Global.System.Nullable(Of Date), ByVal p3 As String, ByVal p4 As String, ByVal p5 As Global.System.Nullable(Of Double), ByVal p6 As String, ByVal p7 As Global.System.Nullable(Of Double), ByVal p8 As Global.System.Nullable(Of Double), ByVal p9 As Global.System.Nullable(Of Double), ByVal p10 As Global.System.Nullable(Of Double), ByVal p11 As Global.System.Nullable(Of Double), ByVal p12 As String, ByVal p13 As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As Global.System.Nullable(Of Date), ByVal p3 As String, ByVal p4 As String, ByVal p5 As Global.System.Nullable(Of Double), ByVal p6 As String, ByVal p7 As Global.System.Nullable(Of Double), ByVal p8 As Global.System.Nullable(Of Double), ByVal p9 As Global.System.Nullable(Of Double), ByVal p10 As Global.System.Nullable(Of Double), ByVal p11 As Global.System.Nullable(Of Double), ByVal p12 As String, ByVal p13 As String, ByVal p14 As Global.System.Nullable(Of Double), ByVal p15 As Global.System.Nullable(Of Double)) As Integer
             If (p1.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(p1.Value,Integer)
             Else
@@ -24907,6 +27135,16 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(12).Value = CType(p13,String)
             End If
+            If (p14.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(p14.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            End If
+            If (p15.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(p15.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -24940,20 +27178,24 @@ Namespace dbsointDataSetTableAdapters
                     ByVal p11 As Global.System.Nullable(Of Double),  _
                     ByVal p12 As String,  _
                     ByVal p13 As String,  _
-                    ByVal p14 As Integer,  _
-                    ByVal p16 As Global.System.Nullable(Of Integer),  _
-                    ByVal p18 As Global.System.Nullable(Of Date),  _
-                    ByVal p20 As String,  _
+                    ByVal p14 As Global.System.Nullable(Of Double),  _
+                    ByVal p15 As Global.System.Nullable(Of Double),  _
+                    ByVal p16 As Integer,  _
+                    ByVal p18 As Global.System.Nullable(Of Integer),  _
+                    ByVal p20 As Global.System.Nullable(Of Date),  _
                     ByVal p22 As String,  _
-                    ByVal p24 As Global.System.Nullable(Of Double),  _
-                    ByVal p26 As String,  _
-                    ByVal p28 As Global.System.Nullable(Of Double),  _
+                    ByVal p24 As String,  _
+                    ByVal p26 As Global.System.Nullable(Of Double),  _
+                    ByVal p28 As String,  _
                     ByVal p30 As Global.System.Nullable(Of Double),  _
                     ByVal p32 As Global.System.Nullable(Of Double),  _
                     ByVal p34 As Global.System.Nullable(Of Double),  _
                     ByVal p36 As Global.System.Nullable(Of Double),  _
-                    ByVal p38 As String,  _
-                    ByVal p40 As String) As Integer
+                    ByVal p38 As Global.System.Nullable(Of Double),  _
+                    ByVal p40 As String,  _
+                    ByVal p42 As String,  _
+                    ByVal p44 As Global.System.Nullable(Of Double),  _
+                    ByVal p46 As Global.System.Nullable(Of Double)) As Integer
             If (p1.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(p1.Value,Integer)
             Else
@@ -25019,27 +27261,30 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(p13,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(p14,Integer)
-            If (p16.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(p16.Value,Integer)
+            If (p14.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(p14.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
+            If (p15.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(p15.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(p16,Integer)
             If (p18.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(p18.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(p18.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
-            If (p20 Is Nothing) Then
+            If (p20.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(p20.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(p20,String)
             End If
             If (p22 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
@@ -25048,26 +27293,26 @@ Namespace dbsointDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(21).Value = CType(p22,String)
             End If
-            If (p24.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(p24.Value,Double)
-            Else
+            If (p24 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(p24,String)
             End If
-            If (p26 Is Nothing) Then
+            If (p26.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(p26.Value,Double)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(p26,String)
             End If
-            If (p28.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(p28.Value,Double)
-            Else
+            If (p28 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(p28,String)
             End If
             If (p30.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
@@ -25097,12 +27342,12 @@ Namespace dbsointDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
             End If
-            If (p38 Is Nothing) Then
+            If (p38.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(p38.Value,Double)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(p38,String)
             End If
             If (p40 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
@@ -25110,6 +27355,27 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(39).Value = CType(p40,String)
+            End If
+            If (p42 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(p42,String)
+            End If
+            If (p44.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(p44.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
+            End If
+            If (p46.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(p46.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -25267,6 +27533,8 @@ Namespace dbsointDataSetTableAdapters
             tableMapping.ColumnMappings.Add("SaldoCCPro", "SaldoCCPro")
             tableMapping.ColumnMappings.Add("EstadoCCPro", "EstadoCCPro")
             tableMapping.ColumnMappings.Add("ObsCCPro", "ObsCCPro")
+            tableMapping.ColumnMappings.Add("PagadoCCPro", "PagadoCCPro")
+            tableMapping.ColumnMappings.Add("RestoCCPro", "RestoCCPro")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -25280,7 +27548,9 @@ Namespace dbsointDataSetTableAdapters
                 "`DebeCCPro` = @p17)) AND ((@p18 = 1 AND `HaberCCPro` IS NULL) OR (`HaberCCPro` ="& _ 
                 " @p19)) AND ((@p20 = 1 AND `SaldoCCPro` IS NULL) OR (`SaldoCCPro` = @p21)) AND ("& _ 
                 "(@p22 = 1 AND `EstadoCCPro` IS NULL) OR (`EstadoCCPro` = @p23)) AND ((@p24 = 1 A"& _ 
-                "ND `ObsCCPro` IS NULL) OR (`ObsCCPro` = @p25)))"
+                "ND `ObsCCPro` IS NULL) OR (`ObsCCPro` = @p25)) AND ((@p26 = 1 AND `PagadoCCPro` "& _ 
+                "IS NULL) OR (`PagadoCCPro` = @p27)) AND ((@p28 = 1 AND `RestoCCPro` IS NULL) OR "& _ 
+                "(`RestoCCPro` = @p29)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -25494,12 +27764,46 @@ Namespace dbsointDataSetTableAdapters
             param.SourceColumn = "ObsCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p26"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p27"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p28"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p29"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
             Me._adapter.InsertCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `ctactepro` (`idCpra`, `NroCCPro`, `FechaCCPro`, `TipoCbteCCPro`, `Pr"& _ 
                 "efijoCCPro`, `SubfijoCCPro`, `DetalleCCPro`, `DebeCCPro`, `HaberCCPro`, `SaldoCC"& _ 
-                "Pro`, `EstadoCCPro`, `ObsCCPro`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8,"& _ 
-                " @p9, @p10, @p11, @p12)"
+                "Pro`, `EstadoCCPro`, `ObsCCPro`, `PagadoCCPro`, `RestoCCPro`) VALUES (@p1, @p2, "& _ 
+                "@p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -25597,22 +27901,40 @@ Namespace dbsointDataSetTableAdapters
             param.SourceColumn = "ObsCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Current
             Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p13"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p14"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
             Me._adapter.UpdateCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `ctactepro` SET `idCpra` = @p1, `NroCCPro` = @p2, `FechaCCPro` = @p3, `Tip"& _ 
                 "oCbteCCPro` = @p4, `PrefijoCCPro` = @p5, `SubfijoCCPro` = @p6, `DetalleCCPro` = "& _ 
                 "@p7, `DebeCCPro` = @p8, `HaberCCPro` = @p9, `SaldoCCPro` = @p10, `EstadoCCPro` ="& _ 
-                " @p11, `ObsCCPro` = @p12 WHERE ((`id_CCPro` = @p13) AND ((@p14 = 1 AND `idCpra` "& _ 
-                "IS NULL) OR (`idCpra` = @p15)) AND ((@p16 = 1 AND `NroCCPro` IS NULL) OR (`NroCC"& _ 
-                "Pro` = @p17)) AND ((@p18 = 1 AND `FechaCCPro` IS NULL) OR (`FechaCCPro` = @p19))"& _ 
-                " AND ((@p20 = 1 AND `TipoCbteCCPro` IS NULL) OR (`TipoCbteCCPro` = @p21)) AND (("& _ 
-                "@p22 = 1 AND `PrefijoCCPro` IS NULL) OR (`PrefijoCCPro` = @p23)) AND ((@p24 = 1 "& _ 
-                "AND `SubfijoCCPro` IS NULL) OR (`SubfijoCCPro` = @p25)) AND ((@p26 = 1 AND `Deta"& _ 
-                "lleCCPro` IS NULL) OR (`DetalleCCPro` = @p27)) AND ((@p28 = 1 AND `DebeCCPro` IS"& _ 
-                " NULL) OR (`DebeCCPro` = @p29)) AND ((@p30 = 1 AND `HaberCCPro` IS NULL) OR (`Ha"& _ 
-                "berCCPro` = @p31)) AND ((@p32 = 1 AND `SaldoCCPro` IS NULL) OR (`SaldoCCPro` = @"& _ 
-                "p33)) AND ((@p34 = 1 AND `EstadoCCPro` IS NULL) OR (`EstadoCCPro` = @p35)) AND ("& _ 
-                "(@p36 = 1 AND `ObsCCPro` IS NULL) OR (`ObsCCPro` = @p37)))"
+                " @p11, `ObsCCPro` = @p12, `PagadoCCPro` = @p13, `RestoCCPro` = @p14 WHERE ((`id_"& _ 
+                "CCPro` = @p15) AND ((@p16 = 1 AND `idCpra` IS NULL) OR (`idCpra` = @p17)) AND (("& _ 
+                "@p18 = 1 AND `NroCCPro` IS NULL) OR (`NroCCPro` = @p19)) AND ((@p20 = 1 AND `Fec"& _ 
+                "haCCPro` IS NULL) OR (`FechaCCPro` = @p21)) AND ((@p22 = 1 AND `TipoCbteCCPro` I"& _ 
+                "S NULL) OR (`TipoCbteCCPro` = @p23)) AND ((@p24 = 1 AND `PrefijoCCPro` IS NULL) "& _ 
+                "OR (`PrefijoCCPro` = @p25)) AND ((@p26 = 1 AND `SubfijoCCPro` IS NULL) OR (`Subf"& _ 
+                "ijoCCPro` = @p27)) AND ((@p28 = 1 AND `DetalleCCPro` IS NULL) OR (`DetalleCCPro`"& _ 
+                " = @p29)) AND ((@p30 = 1 AND `DebeCCPro` IS NULL) OR (`DebeCCPro` = @p31)) AND ("& _ 
+                "(@p32 = 1 AND `HaberCCPro` IS NULL) OR (`HaberCCPro` = @p33)) AND ((@p34 = 1 AND"& _ 
+                " `SaldoCCPro` IS NULL) OR (`SaldoCCPro` = @p35)) AND ((@p36 = 1 AND `EstadoCCPro"& _ 
+                "` IS NULL) OR (`EstadoCCPro` = @p37)) AND ((@p38 = 1 AND `ObsCCPro` IS NULL) OR "& _ 
+                "(`ObsCCPro` = @p39)) AND ((@p40 = 1 AND `PagadoCCPro` IS NULL) OR (`PagadoCCPro`"& _ 
+                " = @p41)) AND ((@p42 = 1 AND `RestoCCPro` IS NULL) OR (`RestoCCPro` = @p43)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -25712,6 +28034,22 @@ Namespace dbsointDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p13"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p14"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p15"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -25719,28 +28057,11 @@ Namespace dbsointDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p14"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "idCpra"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p15"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "idCpra"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p16"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "NroCCPro"
+            param.SourceColumn = "idCpra"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -25749,7 +28070,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "NroCCPro"
+            param.SourceColumn = "idCpra"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -25757,16 +28078,16 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "FechaCCPro"
+            param.SourceColumn = "NroCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p19"
-            param.DbType = Global.System.Data.DbType.[Date]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Date]
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "FechaCCPro"
+            param.SourceColumn = "NroCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -25774,16 +28095,16 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "TipoCbteCCPro"
+            param.SourceColumn = "FechaCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p21"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.DbType = Global.System.Data.DbType.[Date]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Date]
             param.IsNullable = true
-            param.SourceColumn = "TipoCbteCCPro"
+            param.SourceColumn = "FechaCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -25791,7 +28112,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "PrefijoCCPro"
+            param.SourceColumn = "TipoCbteCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -25800,7 +28121,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "PrefijoCCPro"
+            param.SourceColumn = "TipoCbteCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -25808,7 +28129,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "SubfijoCCPro"
+            param.SourceColumn = "PrefijoCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -25817,7 +28138,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "SubfijoCCPro"
+            param.SourceColumn = "PrefijoCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -25825,7 +28146,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "DetalleCCPro"
+            param.SourceColumn = "SubfijoCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -25834,7 +28155,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "DetalleCCPro"
+            param.SourceColumn = "SubfijoCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -25842,16 +28163,16 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "DebeCCPro"
+            param.SourceColumn = "DetalleCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p29"
-            param.DbType = Global.System.Data.DbType.[Double]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "DebeCCPro"
+            param.SourceColumn = "DetalleCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -25859,7 +28180,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "HaberCCPro"
+            param.SourceColumn = "DebeCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -25868,7 +28189,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
-            param.SourceColumn = "HaberCCPro"
+            param.SourceColumn = "DebeCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -25876,7 +28197,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "SaldoCCPro"
+            param.SourceColumn = "HaberCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -25885,7 +28206,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
-            param.SourceColumn = "SaldoCCPro"
+            param.SourceColumn = "HaberCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -25893,16 +28214,16 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "EstadoCCPro"
+            param.SourceColumn = "SaldoCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p35"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
-            param.SourceColumn = "EstadoCCPro"
+            param.SourceColumn = "SaldoCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -25910,7 +28231,7 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "ObsCCPro"
+            param.SourceColumn = "EstadoCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -25919,7 +28240,58 @@ Namespace dbsointDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
+            param.SourceColumn = "EstadoCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p38"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
             param.SourceColumn = "ObsCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p39"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "ObsCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p40"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p41"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagadoCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p42"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCPro"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p43"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "RestoCCPro"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
         End Sub
@@ -25939,7 +28311,7 @@ Namespace dbsointDataSetTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT `id_CCPro`, `idCpra`, `NroCCPro`, `FechaCCPro`, `TipoCbteCCPro`, `PrefijoC"& _ 
                 "CPro`, `SubfijoCCPro`, `DetalleCCPro`, `DebeCCPro`, `HaberCCPro`, `SaldoCCPro`, "& _ 
-                "`EstadoCCPro`, `ObsCCPro` FROM `ctactepro`"
+                "`EstadoCCPro`, `ObsCCPro`, `PagadoCCPro`, `RestoCCPro` FROM `ctactepro`"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -25999,7 +28371,7 @@ Namespace dbsointDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p5 As Global.System.Nullable(Of Integer), ByVal p7 As Global.System.Nullable(Of Date), ByVal p9 As String, ByVal p11 As String, ByVal p13 As String, ByVal p15 As String, ByVal p17 As Global.System.Nullable(Of Double), ByVal p19 As Global.System.Nullable(Of Double), ByVal p21 As Global.System.Nullable(Of Double), ByVal p23 As String, ByVal p25 As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p5 As Global.System.Nullable(Of Integer), ByVal p7 As Global.System.Nullable(Of Date), ByVal p9 As String, ByVal p11 As String, ByVal p13 As String, ByVal p15 As String, ByVal p17 As Global.System.Nullable(Of Double), ByVal p19 As Global.System.Nullable(Of Double), ByVal p21 As Global.System.Nullable(Of Double), ByVal p23 As String, ByVal p25 As String, ByVal p27 As Global.System.Nullable(Of Double), ByVal p29 As Global.System.Nullable(Of Double)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(p1,Integer)
             If (p3.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -26085,6 +28457,20 @@ Namespace dbsointDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(24).Value = CType(p25,String)
             End If
+            If (p27.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(p27.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
+            End If
+            If (p29.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(p29.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -26104,7 +28490,7 @@ Namespace dbsointDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As Global.System.Nullable(Of Integer), ByVal p3 As Global.System.Nullable(Of Date), ByVal p4 As String, ByVal p5 As String, ByVal p6 As String, ByVal p7 As String, ByVal p8 As Global.System.Nullable(Of Double), ByVal p9 As Global.System.Nullable(Of Double), ByVal p10 As Global.System.Nullable(Of Double), ByVal p11 As String, ByVal p12 As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As Global.System.Nullable(Of Integer), ByVal p3 As Global.System.Nullable(Of Date), ByVal p4 As String, ByVal p5 As String, ByVal p6 As String, ByVal p7 As String, ByVal p8 As Global.System.Nullable(Of Double), ByVal p9 As Global.System.Nullable(Of Double), ByVal p10 As Global.System.Nullable(Of Double), ByVal p11 As String, ByVal p12 As String, ByVal p13 As Global.System.Nullable(Of Double), ByVal p14 As Global.System.Nullable(Of Double)) As Integer
             If (p1.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(p1.Value,Integer)
             Else
@@ -26165,6 +28551,16 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(11).Value = CType(p12,String)
             End If
+            If (p13.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(p13.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (p14.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(p14.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -26197,19 +28593,23 @@ Namespace dbsointDataSetTableAdapters
                     ByVal p10 As Global.System.Nullable(Of Double),  _
                     ByVal p11 As String,  _
                     ByVal p12 As String,  _
-                    ByVal p13 As Integer,  _
-                    ByVal p15 As Global.System.Nullable(Of Integer),  _
+                    ByVal p13 As Global.System.Nullable(Of Double),  _
+                    ByVal p14 As Global.System.Nullable(Of Double),  _
+                    ByVal p15 As Integer,  _
                     ByVal p17 As Global.System.Nullable(Of Integer),  _
-                    ByVal p19 As Global.System.Nullable(Of Date),  _
-                    ByVal p21 As String,  _
+                    ByVal p19 As Global.System.Nullable(Of Integer),  _
+                    ByVal p21 As Global.System.Nullable(Of Date),  _
                     ByVal p23 As String,  _
                     ByVal p25 As String,  _
                     ByVal p27 As String,  _
-                    ByVal p29 As Global.System.Nullable(Of Double),  _
+                    ByVal p29 As String,  _
                     ByVal p31 As Global.System.Nullable(Of Double),  _
                     ByVal p33 As Global.System.Nullable(Of Double),  _
-                    ByVal p35 As String,  _
-                    ByVal p37 As String) As Integer
+                    ByVal p35 As Global.System.Nullable(Of Double),  _
+                    ByVal p37 As String,  _
+                    ByVal p39 As String,  _
+                    ByVal p41 As Global.System.Nullable(Of Double),  _
+                    ByVal p43 As Global.System.Nullable(Of Double)) As Integer
             If (p1.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(p1.Value,Integer)
             Else
@@ -26270,14 +28670,17 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(11).Value = CType(p12,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(p13,Integer)
-            If (p15.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(p15.Value,Integer)
+            If (p13.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(p13.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
+            If (p14.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(p14.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(p15,Integer)
             If (p17.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(16).Value = CType(p17.Value,Integer)
@@ -26287,17 +28690,17 @@ Namespace dbsointDataSetTableAdapters
             End If
             If (p19.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(p19.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(p19.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
-            If (p21 Is Nothing) Then
+            If (p21.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(p21.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(p21,String)
             End If
             If (p23 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
@@ -26320,12 +28723,12 @@ Namespace dbsointDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(26).Value = CType(p27,String)
             End If
-            If (p29.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(p29.Value,Double)
-            Else
+            If (p29 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(p29,String)
             End If
             If (p31.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
@@ -26341,12 +28744,12 @@ Namespace dbsointDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
             End If
-            If (p35 Is Nothing) Then
+            If (p35.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(p35.Value,Double)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(p35,String)
             End If
             If (p37 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
@@ -26354,6 +28757,27 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(36).Value = CType(p37,String)
+            End If
+            If (p39 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(p39,String)
+            End If
+            If (p41.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(p41.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+            End If
+            If (p43.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(p43.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -29283,8 +31707,8 @@ Namespace dbsointDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p7"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
             param.SourceColumn = "GrupoGO"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
@@ -29346,8 +31770,8 @@ Namespace dbsointDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p3"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
             param.SourceColumn = "GrupoGO"
             param.SourceVersion = Global.System.Data.DataRowVersion.Current
@@ -29395,8 +31819,8 @@ Namespace dbsointDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p3"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
             param.SourceColumn = "GrupoGO"
             param.SourceVersion = Global.System.Data.DataRowVersion.Current
@@ -29470,8 +31894,8 @@ Namespace dbsointDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p12"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
             param.SourceColumn = "GrupoGO"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
@@ -29586,7 +32010,7 @@ Namespace dbsointDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p5 As String, ByVal p7 As Global.System.Nullable(Of Integer), ByVal p9 As Global.System.Nullable(Of Double), ByVal p11 As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p5 As String, ByVal p7 As String, ByVal p9 As Global.System.Nullable(Of Double), ByVal p11 As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(p1,Integer)
             If (p3.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -29602,12 +32026,12 @@ Namespace dbsointDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = CType(p5,String)
             End If
-            If (p7.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(p7.Value,Integer)
-            Else
+            If (p7 Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(p7,String)
             End If
             If (p9.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
@@ -29642,7 +32066,7 @@ Namespace dbsointDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As String, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p4 As Global.System.Nullable(Of Double), ByVal p5 As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As String, ByVal p3 As String, ByVal p4 As Global.System.Nullable(Of Double), ByVal p5 As String) As Integer
             If (p1.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(p1.Value,Integer)
             Else
@@ -29653,10 +32077,10 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(p2,String)
             End If
-            If (p3.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(p3.Value,Integer)
-            Else
+            If (p3 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(p3,String)
             End If
             If (p4.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(3).Value = CType(p4.Value,Double)
@@ -29687,7 +32111,7 @@ Namespace dbsointDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As String, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p4 As Global.System.Nullable(Of Double), ByVal p5 As String, ByVal p6 As Integer, ByVal p8 As Global.System.Nullable(Of Integer), ByVal p10 As String, ByVal p12 As Global.System.Nullable(Of Integer), ByVal p14 As Global.System.Nullable(Of Double), ByVal p16 As String) As Integer
+        Public Overloads Overridable Function Update(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As String, ByVal p3 As String, ByVal p4 As Global.System.Nullable(Of Double), ByVal p5 As String, ByVal p6 As Integer, ByVal p8 As Global.System.Nullable(Of Integer), ByVal p10 As String, ByVal p12 As String, ByVal p14 As Global.System.Nullable(Of Double), ByVal p16 As String) As Integer
             If (p1.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(p1.Value,Integer)
             Else
@@ -29698,10 +32122,10 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(p2,String)
             End If
-            If (p3.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(p3.Value,Integer)
-            Else
+            If (p3 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(p3,String)
             End If
             If (p4.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(p4.Value,Double)
@@ -29728,12 +32152,12 @@ Namespace dbsointDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(9).Value = CType(p10,String)
             End If
-            If (p12.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(p12.Value,Integer)
-            Else
+            If (p12 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(p12,String)
             End If
             If (p14.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
@@ -33096,6 +35520,760 @@ Namespace dbsointDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class preventivoTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.MySql.Data.MySqlClient.MySqlDataAdapter
+        
+        Private _connection As Global.MySql.Data.MySqlClient.MySqlConnection
+        
+        Private _transaction As Global.MySql.Data.MySqlClient.MySqlTransaction
+        
+        Private _commandCollection() As Global.MySql.Data.MySqlClient.MySqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.MySql.Data.MySqlClient.MySqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Property Connection() As Global.MySql.Data.MySqlClient.MySqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.MySql.Data.MySqlClient.MySqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Property Transaction() As Global.MySql.Data.MySqlClient.MySqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.MySql.Data.MySqlClient.MySqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.MySql.Data.MySqlClient.MySqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "preventivo"
+            tableMapping.ColumnMappings.Add("id_Pre", "id_Pre")
+            tableMapping.ColumnMappings.Add("ObraPre", "ObraPre")
+            tableMapping.ColumnMappings.Add("GrupoPre", "GrupoPre")
+            tableMapping.ColumnMappings.Add("RubroPre", "RubroPre")
+            tableMapping.ColumnMappings.Add("SubRubPre", "SubRubPre")
+            tableMapping.ColumnMappings.Add("DetallePre", "DetallePre")
+            tableMapping.ColumnMappings.Add("ImpTotalPre", "ImpTotalPre")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `preventivo` WHERE ((`id_Pre` = @p1) AND ((@p2 = 1 AND `ObraPre` IS N"& _ 
+                "ULL) OR (`ObraPre` = @p3)) AND ((@p4 = 1 AND `GrupoPre` IS NULL) OR (`GrupoPre` "& _ 
+                "= @p5)) AND ((@p6 = 1 AND `RubroPre` IS NULL) OR (`RubroPre` = @p7)) AND ((@p8 ="& _ 
+                " 1 AND `SubRubPre` IS NULL) OR (`SubRubPre` = @p9)) AND ((@p10 = 1 AND `DetalleP"& _ 
+                "re` IS NULL) OR (`DetallePre` = @p11)) AND ((@p12 = 1 AND `ImpTotalPre` IS NULL)"& _ 
+                " OR (`ImpTotalPre` = @p13)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p1"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "id_Pre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p2"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "ObraPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p3"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "ObraPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p4"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "GrupoPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p5"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "GrupoPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p6"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "RubroPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p7"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "RubroPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p8"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "SubRubPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p9"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "SubRubPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p10"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "DetallePre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p11"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "DetallePre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p12"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "ImpTotalPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p13"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "ImpTotalPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            Me._adapter.InsertCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `preventivo` (`ObraPre`, `GrupoPre`, `RubroPre`, `SubRubPre`, `Detall"& _ 
+                "ePre`, `ImpTotalPre`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p1"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "ObraPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p2"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "GrupoPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p3"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "RubroPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p4"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "SubRubPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p5"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "DetallePre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p6"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "ImpTotalPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            Me._adapter.UpdateCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `preventivo` SET `ObraPre` = @p1, `GrupoPre` = @p2, `RubroPre` = @p3, `Sub"& _ 
+                "RubPre` = @p4, `DetallePre` = @p5, `ImpTotalPre` = @p6 WHERE ((`id_Pre` = @p7) A"& _ 
+                "ND ((@p8 = 1 AND `ObraPre` IS NULL) OR (`ObraPre` = @p9)) AND ((@p10 = 1 AND `Gr"& _ 
+                "upoPre` IS NULL) OR (`GrupoPre` = @p11)) AND ((@p12 = 1 AND `RubroPre` IS NULL) "& _ 
+                "OR (`RubroPre` = @p13)) AND ((@p14 = 1 AND `SubRubPre` IS NULL) OR (`SubRubPre` "& _ 
+                "= @p15)) AND ((@p16 = 1 AND `DetallePre` IS NULL) OR (`DetallePre` = @p17)) AND "& _ 
+                "((@p18 = 1 AND `ImpTotalPre` IS NULL) OR (`ImpTotalPre` = @p19)))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p1"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "ObraPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p2"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "GrupoPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p3"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "RubroPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p4"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "SubRubPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p5"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "DetallePre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p6"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "ImpTotalPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p7"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "id_Pre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p8"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "ObraPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p9"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "ObraPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p10"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "GrupoPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p11"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "GrupoPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p12"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "RubroPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p13"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "RubroPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p14"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "SubRubPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p15"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "SubRubPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p16"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "DetallePre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p17"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "DetallePre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p18"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "ImpTotalPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p19"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "ImpTotalPre"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
+            Me._connection.ConnectionString = Global.Soint.My.MySettings.Default.dbsointConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(0) {}
+            Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT `id_Pre`, `ObraPre`, `GrupoPre`, `RubroPre`, `SubRubPre`, `DetallePre`, `I"& _ 
+                "mpTotalPre` FROM `preventivo`"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As dbsointDataSet.preventivoDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As dbsointDataSet.preventivoDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As dbsointDataSet.preventivoDataTable = New dbsointDataSet.preventivoDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As dbsointDataSet.preventivoDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As dbsointDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "preventivo")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p5 As String, ByVal p7 As String, ByVal p9 As String, ByVal p11 As String, ByVal p13 As Global.System.Nullable(Of Double)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(p1,Integer)
+            If (p3.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(p3.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (p5 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(p5,String)
+            End If
+            If (p7 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(p7,String)
+            End If
+            If (p9 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(p9,String)
+            End If
+            If (p11 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(p11,String)
+            End If
+            If (p13.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(p13.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As String, ByVal p3 As String, ByVal p4 As String, ByVal p5 As String, ByVal p6 As Global.System.Nullable(Of Double)) As Integer
+            If (p1.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(p1.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (p2 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(p2,String)
+            End If
+            If (p3 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(p3,String)
+            End If
+            If (p4 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(p4,String)
+            End If
+            If (p5 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(p5,String)
+            End If
+            If (p6.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(p6.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As String, ByVal p3 As String, ByVal p4 As String, ByVal p5 As String, ByVal p6 As Global.System.Nullable(Of Double), ByVal p7 As Integer, ByVal p9 As Global.System.Nullable(Of Integer), ByVal p11 As String, ByVal p13 As String, ByVal p15 As String, ByVal p17 As String, ByVal p19 As Global.System.Nullable(Of Double)) As Integer
+            If (p1.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(p1.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (p2 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(p2,String)
+            End If
+            If (p3 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(p3,String)
+            End If
+            If (p4 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(p4,String)
+            End If
+            If (p5 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(p5,String)
+            End If
+            If (p6.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(p6.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(p7,Integer)
+            If (p9.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(p9.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (p11 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(p11,String)
+            End If
+            If (p13 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(p13,String)
+            End If
+            If (p15 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(p15,String)
+            End If
+            If (p17 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(p17,String)
+            End If
+            If (p19.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(p19.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class proveedoresTableAdapter
         Inherits Global.System.ComponentModel.Component
         
@@ -34314,6 +37492,1011 @@ Namespace dbsointDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(36).Value = CType(p37,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class reciboTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.MySql.Data.MySqlClient.MySqlDataAdapter
+        
+        Private _connection As Global.MySql.Data.MySqlClient.MySqlConnection
+        
+        Private _transaction As Global.MySql.Data.MySqlClient.MySqlTransaction
+        
+        Private _commandCollection() As Global.MySql.Data.MySqlClient.MySqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.MySql.Data.MySqlClient.MySqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Property Connection() As Global.MySql.Data.MySqlClient.MySqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.MySql.Data.MySqlClient.MySqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Property Transaction() As Global.MySql.Data.MySqlClient.MySqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.MySql.Data.MySqlClient.MySqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.MySql.Data.MySqlClient.MySqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "recibo"
+            tableMapping.ColumnMappings.Add("id_Rec", "id_Rec")
+            tableMapping.ColumnMappings.Add("FecVtoRec", "FecVtoRec")
+            tableMapping.ColumnMappings.Add("DetalleRec", "DetalleRec")
+            tableMapping.ColumnMappings.Add("PeriodoRec", "PeriodoRec")
+            tableMapping.ColumnMappings.Add("ImpCbteRec", "ImpCbteRec")
+            tableMapping.ColumnMappings.Add("PagoAntRec", "PagoAntRec")
+            tableMapping.ColumnMappings.Add("SaldoAntRec", "SaldoAntRec")
+            tableMapping.ColumnMappings.Add("PagoActRec", "PagoActRec")
+            tableMapping.ColumnMappings.Add("SaldoActRec", "SaldoActRec")
+            tableMapping.ColumnMappings.Add("ObsRec", "ObsRec")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `recibo` WHERE ((`id_Rec` = @p1) AND ((@p2 = 1 AND `FecVtoRec` IS NUL"& _ 
+                "L) OR (`FecVtoRec` = @p3)) AND ((@p4 = 1 AND `DetalleRec` IS NULL) OR (`DetalleR"& _ 
+                "ec` = @p5)) AND ((@p6 = 1 AND `PeriodoRec` IS NULL) OR (`PeriodoRec` = @p7)) AND"& _ 
+                " ((@p8 = 1 AND `ImpCbteRec` IS NULL) OR (`ImpCbteRec` = @p9)) AND ((@p10 = 1 AND"& _ 
+                " `PagoAntRec` IS NULL) OR (`PagoAntRec` = @p11)) AND ((@p12 = 1 AND `SaldoAntRec"& _ 
+                "` IS NULL) OR (`SaldoAntRec` = @p13)) AND ((@p14 = 1 AND `PagoActRec` IS NULL) O"& _ 
+                "R (`PagoActRec` = @p15)) AND ((@p16 = 1 AND `SaldoActRec` IS NULL) OR (`SaldoAct"& _ 
+                "Rec` = @p17)) AND ((@p18 = 1 AND `ObsRec` IS NULL) OR (`ObsRec` = @p19)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p1"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "id_Rec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p2"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "FecVtoRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p3"
+            param.DbType = Global.System.Data.DbType.[Date]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Date]
+            param.IsNullable = true
+            param.SourceColumn = "FecVtoRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p4"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "DetalleRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p5"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "DetalleRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p6"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PeriodoRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p7"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "PeriodoRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p8"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "ImpCbteRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p9"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "ImpCbteRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p10"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PagoAntRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p11"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagoAntRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p12"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "SaldoAntRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p13"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "SaldoAntRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p14"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PagoActRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p15"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagoActRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p16"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "SaldoActRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p17"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "SaldoActRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p18"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "ObsRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p19"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "ObsRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            Me._adapter.InsertCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `recibo` (`FecVtoRec`, `DetalleRec`, `PeriodoRec`, `ImpCbteRec`, `Pag"& _ 
+                "oAntRec`, `SaldoAntRec`, `PagoActRec`, `SaldoActRec`, `ObsRec`) VALUES (@p1, @p2"& _ 
+                ", @p3, @p4, @p5, @p6, @p7, @p8, @p9)"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p1"
+            param.DbType = Global.System.Data.DbType.[Date]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Date]
+            param.IsNullable = true
+            param.SourceColumn = "FecVtoRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p2"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "DetalleRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p3"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "PeriodoRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p4"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "ImpCbteRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p5"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagoAntRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p6"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "SaldoAntRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p7"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagoActRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p8"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "SaldoActRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p9"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "ObsRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            Me._adapter.UpdateCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `recibo` SET `FecVtoRec` = @p1, `DetalleRec` = @p2, `PeriodoRec` = @p3, `I"& _ 
+                "mpCbteRec` = @p4, `PagoAntRec` = @p5, `SaldoAntRec` = @p6, `PagoActRec` = @p7, `"& _ 
+                "SaldoActRec` = @p8, `ObsRec` = @p9 WHERE ((`id_Rec` = @p10) AND ((@p11 = 1 AND `"& _ 
+                "FecVtoRec` IS NULL) OR (`FecVtoRec` = @p12)) AND ((@p13 = 1 AND `DetalleRec` IS "& _ 
+                "NULL) OR (`DetalleRec` = @p14)) AND ((@p15 = 1 AND `PeriodoRec` IS NULL) OR (`Pe"& _ 
+                "riodoRec` = @p16)) AND ((@p17 = 1 AND `ImpCbteRec` IS NULL) OR (`ImpCbteRec` = @"& _ 
+                "p18)) AND ((@p19 = 1 AND `PagoAntRec` IS NULL) OR (`PagoAntRec` = @p20)) AND ((@"& _ 
+                "p21 = 1 AND `SaldoAntRec` IS NULL) OR (`SaldoAntRec` = @p22)) AND ((@p23 = 1 AND"& _ 
+                " `PagoActRec` IS NULL) OR (`PagoActRec` = @p24)) AND ((@p25 = 1 AND `SaldoActRec"& _ 
+                "` IS NULL) OR (`SaldoActRec` = @p26)) AND ((@p27 = 1 AND `ObsRec` IS NULL) OR (`"& _ 
+                "ObsRec` = @p28)))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p1"
+            param.DbType = Global.System.Data.DbType.[Date]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Date]
+            param.IsNullable = true
+            param.SourceColumn = "FecVtoRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p2"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "DetalleRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p3"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "PeriodoRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p4"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "ImpCbteRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p5"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagoAntRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p6"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "SaldoAntRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p7"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagoActRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p8"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "SaldoActRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p9"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "ObsRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p10"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "id_Rec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p11"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "FecVtoRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p12"
+            param.DbType = Global.System.Data.DbType.[Date]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Date]
+            param.IsNullable = true
+            param.SourceColumn = "FecVtoRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p13"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "DetalleRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p14"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "DetalleRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p15"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PeriodoRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p16"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "PeriodoRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p17"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "ImpCbteRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p18"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "ImpCbteRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p19"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PagoAntRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p20"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagoAntRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p21"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "SaldoAntRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p22"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "SaldoAntRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p23"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "PagoActRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p24"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "PagoActRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p25"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "SaldoActRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p26"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.IsNullable = true
+            param.SourceColumn = "SaldoActRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p27"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "ObsRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p28"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "ObsRec"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
+            Me._connection.ConnectionString = Global.Soint.My.MySettings.Default.dbsointConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(0) {}
+            Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT `id_Rec`, `FecVtoRec`, `DetalleRec`, `PeriodoRec`, `ImpCbteRec`, `PagoAntR"& _ 
+                "ec`, `SaldoAntRec`, `PagoActRec`, `SaldoActRec`, `ObsRec` FROM `recibo`"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As dbsointDataSet.reciboDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As dbsointDataSet.reciboDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As dbsointDataSet.reciboDataTable = New dbsointDataSet.reciboDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As dbsointDataSet.reciboDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As dbsointDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "recibo")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As Global.System.Nullable(Of Date), ByVal p5 As String, ByVal p7 As String, ByVal p9 As Global.System.Nullable(Of Double), ByVal p11 As Global.System.Nullable(Of Double), ByVal p13 As Global.System.Nullable(Of Double), ByVal p15 As Global.System.Nullable(Of Double), ByVal p17 As Global.System.Nullable(Of Double), ByVal p19 As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(p1,Integer)
+            If (p3.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(p3.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (p5 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(p5,String)
+            End If
+            If (p7 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(p7,String)
+            End If
+            If (p9.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(p9.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (p11.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(p11.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (p13.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(p13.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (p15.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(p15.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (p17.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(p17.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            If (p19 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(p19,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Date), ByVal p2 As String, ByVal p3 As String, ByVal p4 As Global.System.Nullable(Of Double), ByVal p5 As Global.System.Nullable(Of Double), ByVal p6 As Global.System.Nullable(Of Double), ByVal p7 As Global.System.Nullable(Of Double), ByVal p8 As Global.System.Nullable(Of Double), ByVal p9 As String) As Integer
+            If (p1.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(p1.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (p2 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(p2,String)
+            End If
+            If (p3 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(p3,String)
+            End If
+            If (p4.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(p4.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (p5.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(p5.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (p6.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(p6.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (p7.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(p7.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (p8.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(p8.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (p9 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(p9,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal p1 As Global.System.Nullable(Of Date),  _
+                    ByVal p2 As String,  _
+                    ByVal p3 As String,  _
+                    ByVal p4 As Global.System.Nullable(Of Double),  _
+                    ByVal p5 As Global.System.Nullable(Of Double),  _
+                    ByVal p6 As Global.System.Nullable(Of Double),  _
+                    ByVal p7 As Global.System.Nullable(Of Double),  _
+                    ByVal p8 As Global.System.Nullable(Of Double),  _
+                    ByVal p9 As String,  _
+                    ByVal p10 As Integer,  _
+                    ByVal p12 As Global.System.Nullable(Of Date),  _
+                    ByVal p14 As String,  _
+                    ByVal p16 As String,  _
+                    ByVal p18 As Global.System.Nullable(Of Double),  _
+                    ByVal p20 As Global.System.Nullable(Of Double),  _
+                    ByVal p22 As Global.System.Nullable(Of Double),  _
+                    ByVal p24 As Global.System.Nullable(Of Double),  _
+                    ByVal p26 As Global.System.Nullable(Of Double),  _
+                    ByVal p28 As String) As Integer
+            If (p1.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(p1.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (p2 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(p2,String)
+            End If
+            If (p3 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(p3,String)
+            End If
+            If (p4.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(p4.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (p5.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(p5.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (p6.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(p6.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (p7.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(p7.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (p8.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(p8.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (p9 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(p9,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(p10,Integer)
+            If (p12.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(p12.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (p14 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(p14,String)
+            End If
+            If (p16 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(p16,String)
+            End If
+            If (p18.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(p18.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+            End If
+            If (p20.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(p20.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            End If
+            If (p22.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(p22.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+            End If
+            If (p24.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(p24.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            End If
+            If (p26.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(p26.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+            End If
+            If (p28 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(p28,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -36107,7 +40290,11 @@ Namespace dbsointDataSetTableAdapters
         
         Private _operadoresTableAdapter As operadoresTableAdapter
         
+        Private _preventivoTableAdapter As preventivoTableAdapter
+        
         Private _proveedoresTableAdapter As proveedoresTableAdapter
+        
+        Private _reciboTableAdapter As reciboTableAdapter
         
         Private _rubrosTableAdapter As rubrosTableAdapter
         
@@ -36415,12 +40602,40 @@ Namespace dbsointDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property preventivoTableAdapter() As preventivoTableAdapter
+            Get
+                Return Me._preventivoTableAdapter
+            End Get
+            Set
+                Me._preventivoTableAdapter = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
+            "a", "System.Drawing.Design.UITypeEditor")>  _
         Public Property proveedoresTableAdapter() As proveedoresTableAdapter
             Get
                 Return Me._proveedoresTableAdapter
             End Get
             Set
                 Me._proveedoresTableAdapter = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
+            "a", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property reciboTableAdapter() As reciboTableAdapter
+            Get
+                Return Me._reciboTableAdapter
+            End Get
+            Set
+                Me._reciboTableAdapter = value
             End Set
         End Property
         
@@ -36565,9 +40780,17 @@ Namespace dbsointDataSetTableAdapters
                             AndAlso (Not (Me._operadoresTableAdapter.Connection) Is Nothing)) Then
                     Return Me._operadoresTableAdapter.Connection
                 End If
+                If ((Not (Me._preventivoTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._preventivoTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._preventivoTableAdapter.Connection
+                End If
                 If ((Not (Me._proveedoresTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._proveedoresTableAdapter.Connection) Is Nothing)) Then
                     Return Me._proveedoresTableAdapter.Connection
+                End If
+                If ((Not (Me._reciboTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._reciboTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._reciboTableAdapter.Connection
                 End If
                 If ((Not (Me._rubrosTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._rubrosTableAdapter.Connection) Is Nothing)) Then
@@ -36654,7 +40877,13 @@ Namespace dbsointDataSetTableAdapters
                 If (Not (Me._operadoresTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
+                If (Not (Me._preventivoTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
                 If (Not (Me._proveedoresTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
+                If (Not (Me._reciboTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 If (Not (Me._rubrosTableAdapter) Is Nothing) Then
@@ -36704,12 +40933,30 @@ Namespace dbsointDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
+            If (Not (Me._reciboTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.recibo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._reciboTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             If (Not (Me._proveedoresTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.proveedores.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._proveedoresTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._preventivoTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.preventivo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._preventivoTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -36927,11 +41174,27 @@ Namespace dbsointDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._reciboTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.recibo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._reciboTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._proveedoresTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.proveedores.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._proveedoresTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._preventivoTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.preventivo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._preventivoTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -37265,11 +41528,27 @@ Namespace dbsointDataSetTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
+            If (Not (Me._preventivoTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.preventivo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._preventivoTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._proveedoresTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.proveedores.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._proveedoresTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._reciboTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.recibo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._reciboTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -37438,8 +41717,18 @@ Namespace dbsointDataSetTableAdapters
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
                         "sma cadena de conexión.")
             End If
+            If ((Not (Me._preventivoTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._preventivoTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
+                        "sma cadena de conexión.")
+            End If
             If ((Not (Me._proveedoresTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._proveedoresTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
+                        "sma cadena de conexión.")
+            End If
+            If ((Not (Me._reciboTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._reciboTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
                         "sma cadena de conexión.")
             End If
@@ -37670,6 +41959,15 @@ Namespace dbsointDataSetTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._operadoresTableAdapter.Adapter)
                     End If
                 End If
+                If (Not (Me._preventivoTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._preventivoTableAdapter, Me._preventivoTableAdapter.Connection)
+                    Me._preventivoTableAdapter.Connection = CType(workConnection,Global.MySql.Data.MySqlClient.MySqlConnection)
+                    Me._preventivoTableAdapter.Transaction = CType(workTransaction,Global.MySql.Data.MySqlClient.MySqlTransaction)
+                    If Me._preventivoTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._preventivoTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._preventivoTableAdapter.Adapter)
+                    End If
+                End If
                 If (Not (Me._proveedoresTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._proveedoresTableAdapter, Me._proveedoresTableAdapter.Connection)
                     Me._proveedoresTableAdapter.Connection = CType(workConnection,Global.MySql.Data.MySqlClient.MySqlConnection)
@@ -37677,6 +41975,15 @@ Namespace dbsointDataSetTableAdapters
                     If Me._proveedoresTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._proveedoresTableAdapter.Adapter.AcceptChangesDuringUpdate = false
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._proveedoresTableAdapter.Adapter)
+                    End If
+                End If
+                If (Not (Me._reciboTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._reciboTableAdapter, Me._reciboTableAdapter.Connection)
+                    Me._reciboTableAdapter.Connection = CType(workConnection,Global.MySql.Data.MySqlClient.MySqlConnection)
+                    Me._reciboTableAdapter.Transaction = CType(workTransaction,Global.MySql.Data.MySqlClient.MySqlTransaction)
+                    If Me._reciboTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._reciboTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._reciboTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._rubrosTableAdapter) Is Nothing) Then
@@ -37846,9 +42153,17 @@ Namespace dbsointDataSetTableAdapters
                     Me._operadoresTableAdapter.Connection = CType(revertConnections(Me._operadoresTableAdapter),Global.MySql.Data.MySqlClient.MySqlConnection)
                     Me._operadoresTableAdapter.Transaction = Nothing
                 End If
+                If (Not (Me._preventivoTableAdapter) Is Nothing) Then
+                    Me._preventivoTableAdapter.Connection = CType(revertConnections(Me._preventivoTableAdapter),Global.MySql.Data.MySqlClient.MySqlConnection)
+                    Me._preventivoTableAdapter.Transaction = Nothing
+                End If
                 If (Not (Me._proveedoresTableAdapter) Is Nothing) Then
                     Me._proveedoresTableAdapter.Connection = CType(revertConnections(Me._proveedoresTableAdapter),Global.MySql.Data.MySqlClient.MySqlConnection)
                     Me._proveedoresTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._reciboTableAdapter) Is Nothing) Then
+                    Me._reciboTableAdapter.Connection = CType(revertConnections(Me._reciboTableAdapter),Global.MySql.Data.MySqlClient.MySqlConnection)
+                    Me._reciboTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._rubrosTableAdapter) Is Nothing) Then
                     Me._rubrosTableAdapter.Connection = CType(revertConnections(Me._rubrosTableAdapter),Global.MySql.Data.MySqlClient.MySqlConnection)

@@ -56,7 +56,7 @@
 
     Private Sub SaldoCtaCte()
 
-        comando.CommandText = "SELECT * FROM ctacteemp WHERE NroCCEmp = " & txtCliente.Text & " ORDER BY FechaCC"
+        comando.CommandText = "SELECT * FROM ctacteemp WHERE NroCCEmp = " & txtCliente.Text & " ORDER BY FechaCCEmp"
         dt = New DataTable
         da = New MySqlDataAdapter(comando)
         da.Fill(dt)

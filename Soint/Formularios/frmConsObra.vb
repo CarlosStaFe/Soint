@@ -47,6 +47,11 @@
             frmObra3.txtObraGO.Text = dgvObras.CurrentRow.Cells(2).Value.ToString
             frmObra3.txtNombreGO.Text = dgvObras.CurrentRow.Cells(9).Value.ToString
         End If
+        If senial = 4 Then
+            Dim frmObra4 As frmListaPrev = CType(Owner, frmListaPrev)
+            frmObra4.txtObra.Text = dgvObras.CurrentRow.Cells(2).Value.ToString
+            frmObra4.txtNombre.Text = dgvObras.CurrentRow.Cells(9).Value.ToString
+        End If
 
         Close()
 

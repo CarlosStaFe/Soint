@@ -141,6 +141,9 @@
         txtImporteGO.Text = ""
         txtObsGO.Text = ""
         cmbGrupoGO.SelectedItem = 0
+        btnAgregar.Enabled = True
+        btnGrabar.Enabled = True
+        btnModificar.Enabled = False
 
     End Sub
 
